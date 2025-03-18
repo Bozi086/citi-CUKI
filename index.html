@@ -959,6 +959,19 @@
             height: 600px; /* Visina logoa */
             object-fit: contain; /* Održava proporcije logoa */
         }
+           @media (max-width: 768px) {
+            .centered-logo {
+                width: 300px; /* Smanjena širina za tablete */
+                height: 350px; /* Smanjena visina za tablete */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .centered-logo {
+                width: 200px; /* Još manja širina za telefone */
+                height: 250px; /* Još manja visina za telefone */
+            }
+        }
 
         /* info */
      .contact-content {
