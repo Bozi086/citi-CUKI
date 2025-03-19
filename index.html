@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome za ikone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="logo-City.png">
     <style>
      :root {
     --budva-blue: #006994;
@@ -25,6 +26,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: padding 0.3s ease, box-shadow 0.3s ease; /* Dodata tranzicija */
 }
 
 .navbar-brand {
@@ -38,32 +40,23 @@
     transform: scale(1.05);
 }
 
-/* Stilovi za logo sa zlatnom senkom koja kruži */
 .navbar-logo {
     height: 40px;
     width: auto;
-    border-radius: 10px; /* Zadržano srednje zaobljenje */
-    animation: glowingShadow 2s infinite ease-in-out; /* Animacija senke */
+    border-radius: 10px;
+    animation: glowingShadow 2s infinite ease-in-out;
 }
 
-/* Animacija za zlatnu senku koja kruži */
 @keyframes glowingShadow {
-    0% {
-        box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold);
-    }
-    50% {
-        box-shadow: 0 0 20px var(--budva-gold), 0 0 30px var(--budva-gold), 0 0 40px var(--budva-gold);
-    }
-    100% {
-        box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold);
-    }
+    0% { box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold); }
+    50% { box-shadow: 0 0 20px var(--budva-gold), 0 0 30px var(--budva-gold), 0 0 40px var(--budva-gold); }
+    100% { box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold); }
 }
 
 .navbar-brand:hover .navbar-logo {
-    transform: scale(1.05); /* Zadržan hover efekat */
+    transform: scale(1.05);
 }
 
-/* Ostatak postojećih stilova */
 .nav-link {
     color: var(--budva-white) !important;
     margin: 0 1.5rem;
@@ -76,6 +69,12 @@
 .nav-link:hover {
     color: var(--budva-gold) !important;
     background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    color: var(--budva-gold) !important;
+    background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
 }
 
@@ -120,13 +119,17 @@
         margin-top: 1rem;
         justify-content: center;
     }
+    .nav-link.active {
+        color: var(--budva-gold) !important;
+        background: rgba(255, 255, 255, 0.2);
+    }
 }
 
 @media (max-width: 768px) {
     .navbar-logo {
         height: 30px;
-        border-radius: 8px; /* Smanjeno zaobljenje */
-        animation: glowingShadow 2s infinite ease-in-out; /* Animacija zadržana */
+        border-radius: 8px;
+        animation: glowingShadow 2s infinite ease-in-out;
     }
 }
 
