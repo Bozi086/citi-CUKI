@@ -1,15 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerija - City Apartments</title>
+    <title>City Apartments</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome za ikone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-       :root {
+     :root {
     --budva-blue: #006994;
     --budva-gold: #D4A017;
     --budva-white: #F5F6F5;
@@ -129,7 +130,7 @@
     }
 }
 
-        /* Modernizirani Footer */
+       /* Modernizirani Footer */
         .footer {
             background: linear-gradient(135deg, var(--budva-dark), var(--budva-blue));
             color: var(--budva-white);
@@ -249,221 +250,946 @@
             background-color: var(--budva-white);
         }
 
-        /* Galerija stilovi */
-        .gallery-section {
+        /* Hero stilovi */
+        .hero-section {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--budva-white);
+          background: linear-gradient(rgba(0, 52, 74, 0.45), rgba(0, 52, 74, 0.45)), url('hero-slika.jpg');
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-btn {
+            background: var(--budva-gold);
+            color: var(--budva-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-btn:hover {
+            background: var(--budva-white);
+            color: var(--budva-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sticky footer */
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+            background-color: var(--budva-white);
+        }
+
+        /* Apartmani sekcija */
+        .apartments-section {
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .gallery-header {
+        .apartments-section h2 {
             text-align: center;
-            margin-bottom: 2rem; /* Smanjen razmak */
-        }
-
-        .gallery-header h1 {
             color: var(--budva-dark);
             font-size: 2.5rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 3rem;
             position: relative;
-            display: inline-block;
         }
 
-        .gallery-header h1::after {
+        .apartments-section h2::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px; /* Smanjena dužina linije */
+            width: 100px;
             height: 3px;
             background: var(--budva-gold);
         }
 
-        .gallery-header p {
+        .apartments-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .apartment-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .apartment-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .apartment-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .apartment-card-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .apartment-card-content h3 {
             color: var(--budva-dark);
-            font-size: 1.1rem; /* Smanjena veličina teksta */
-            max-width: 700px;
-            margin: 0 auto;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .gallery-filters {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem; /* Smanjen razmak */
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap; /* Omogućava prelamanje na manjim ekranima */
-        }
-
-        .filter-btn {
+        .apartment-card-content button {
             background: var(--budva-blue);
             color: var(--budva-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
             border: none;
-            padding: 0.4rem 1.2rem; /* Smanjen padding */
-            border-radius: 20px; /* Smanjen radius */
-            font-size: 0.9rem; /* Smanjena veličina teksta */
-            cursor: pointer;
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
 
-        .filter-btn:hover,
-        .filter-btn.active {
+        .apartment-card-content button:hover {
             background: var(--budva-gold);
             color: var(--budva-dark);
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Smanjena minimalna širina */
-            gap: 1rem; /* Smanjen razmak */
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px; /* Smanjen radius */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Smanjena senka */
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 220px; /* Smanjena visina za mobilne */
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 52, 74, 0.8);
-            color: var(--budva-white);
-            padding: 0.8rem; /* Smanjen padding */
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .overlay {
-            transform: translateY(0);
-        }
-
-        .gallery-item h3 {
-            margin: 0;
-            font-size: 1.1rem; /* Smanjena veličina teksta */
-        }
-
-        /* Modal stilovi za uvećanu sliku */
+        /* Modal stilovi */
         .modal-content {
-            background: transparent;
-            border: none;
-            box-shadow: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: var(--budva-white);
+             border: 3px solid var(--budva-light-blue);
+        }
+
+        .modal-header {
+            background: var(--budva-blue);
+            color: var(--budva-white);
+            border-bottom: none;
+            padding: 1rem 1.5rem;
+
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         .modal-body {
+            padding: 2rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .modal-body .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body .small-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .modal-body .small-images img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .modal-body p {
+            color: var(--budva-dark);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+
+        .modal-footer {
+            border-top: none;
+            padding: 1rem 1.5rem;
+            background: var(--budva-white);
+            position: sticky;
+            bottom: 0;
+            z-index: 1;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 0;
         }
 
-        .modal-image {
-            width: 800px; /* Osnovna veličina za desktop */
-            height: 800px;
-            object-fit: contain; /* Održava proporcije slike */
+        .modal-footer .reserve-btn {
+            background: var(--budva-gold);
+            color: var(--budva-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            width: auto;
         }
 
-        /* Uklanjanje animacija skaliranja */
-        .modal.show .modal-image,
-        .modal.fade .modal-image {
-            transform: none; /* Bez skaliranja */
+        .modal-footer .reserve-btn:hover {
+            background: var(--budva-blue);
+            color: var(--budva-white);
         }
 
-        /* Responzivnost za galeriju */
+        /* Responzivnost za apartmane i modal */
         @media (max-width: 991px) and (min-width: 769px) {
-            .gallery-section {
-                padding: 3rem 1.5rem; /* Smanjen padding za tablete */
-            }
-            .gallery-grid {
+            .apartments-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .gallery-item img {
-                height: 200px; /* Smanjena visina za tablete */
+
+            .apartment-card img {
+                height: 208px;
             }
-            .modal-image {
-                width: 600px; /* Smanjena veličina za tablete */
-                height: 600px;
+
+            .modal-body .main-image {
+                height: 300px;
+            }
+
+            .modal-body .small-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-body .small-images img {
+                height: 120px;
             }
         }
 
         @media (max-width: 768px) {
-            .gallery-section {
-                padding: 2rem 1rem;
+            .apartments-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
-            .gallery-header h1 {
-                font-size: 2rem;
+
+            .apartment-card img {
+                height: 182px;
             }
-            .gallery-header p {
-                font-size: 1rem;
+
+            .modal-dialog {
+                margin: 1rem;
+                max-width: calc(100% - 2rem);
+                height: 90vh;
             }
-            .gallery-filters {
+
+            .modal-content {
+                border-radius: 10px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .modal-header {
+                padding: 0.75rem 1rem;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+
+            .modal-body {
+                padding: 1rem;
+                max-height: none;
+                flex: 1;
+                overflow-y: auto;
+            }
+
+            .modal-body .main-image {
+                height: 250px;
+            }
+
+            .modal-body .small-images {
+                grid-template-columns: 1fr;
                 gap: 0.5rem;
             }
-            .filter-btn {
-                padding: 0.3rem 1rem;
-                font-size: 0.85rem;
+
+            .modal-body .small-images img {
+                height: 100px;
             }
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
+
+            .modal-body p {
+                font-size: 0.95rem;
+                margin: 0.75rem 0;
             }
-            .gallery-item {
-                height: 180px; /* Smanjena visina za mobilne */
+
+            .modal-footer {
+                padding: 0.75rem 1rem;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
             }
-            .gallery-item img {
-                height: 100%;
+
+            .modal-footer .reserve-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
             }
-            .gallery-item h3 {
+        }
+
+        /* O nama sekcija */
+        .about-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--budva-white);
+        }
+
+        .about-section h2 {
+            color: var(--budva-dark);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .about-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--budva-gold);
+        }
+
+        .about-section p {
+            color: var(--budva-dark);
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 3rem 1rem;
+            }
+
+            .about-section h2 {
+                font-size: 2rem;
+            }
+
+            .about-section p {
                 font-size: 1rem;
             }
-            .modal-image {
-                
-                max-width: 650px; /* Maksimalna veličina za mobilne */
-               
-                max-height: 650px;
+        }
+
+
+          /* zasto city aparamets */
+            .location-advantages {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .location-advantages h2 {
+            color: var(--budva-dark);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .location-advantages h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--budva-gold);
+        }
+
+        .location-image-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .location-image {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            max-height: 700px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sjena oko slike */
+            display: block;
+        }
+
+        /* Responzivnost */
+        @media (max-width: 1200px) {
+            .location-advantages {
+                padding: 1.5rem;
+            }
+
+            .location-image-container {
+                max-width: 100%;
+            }
+
+            .location-image {
+                max-width: 100%;
+                max-height: 600px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .location-advantages h2 {
+                font-size: 2rem;
+            }
+
+            .location-image {
+                max-height: 400px;
             }
         }
 
         @media (max-width: 480px) {
-            .gallery-section {
-                padding: 1.5rem 0.5rem;
+            .location-advantages {
+                padding: 1rem;
             }
-            .gallery-header h1 {
+
+            .location-advantages h2 {
                 font-size: 1.8rem;
             }
-            .gallery-header p {
-                font-size: 0.9rem;
-            }
-            .gallery-item {
-                height: 150px; /* Još manja visina za veoma male ekrane */
-            }
-            .gallery-item h3 {
-                font-size: 0.9rem;
-            }
-            .modal-image {
-                max-width: 400px; /* Još manja veličina za veoma male ekrane */
-                max-height: 400px;
+
+            .location-image {
+                max-height: 300px;
             }
         }
+
+        /* komentari sa bookinga */
+        .reviews-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .reviews-section h2 {
+            color: var(--budva-dark);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .reviews-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--budva-gold);
+        }
+
+        .reviews-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .reviews-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .review-card {
+            flex: 0 0 100%;
+            background: var(--budva-white);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .review-card i.quote-icon {
+            color: var(--budva-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-card p {
+            color: var(--budva-dark);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0 0 1rem 0;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .review-author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+            border: 2px solid var(--budva-gold);
+        }
+
+        .review-author .flag {
+            width: 20px;
+            height: 15px;
+            margin-right: 0.5rem;
+            background-size: cover;
+            background-position: center;
+            display: inline-block;
+        }
+
+        .review-author h4 {
+            color: var(--budva-blue);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Zastavice (placeholder - zamijeni s pravim slikama ili ikonama) */
+        .flag.ch {background: url('https://flagcdn.com/w20/ch.png') no-repeat;} /* Švajcarska */
+        .flag.rs { background: url('https://flagcdn.com/w20/rs.png') no-repeat; } /* Srbija */
+        .flag.hr { background: url('https://flagcdn.com/w20/hr.png') no-repeat; } /* Hrvatska */
+        .flag.uk {background: url('https://flagcdn.com/w20/uk.png') no-repeat;} /* Velika Britanija */
+        .flag.de {background: url('https://flagcdn.com/w20/de.png') no-repeat;} /* Njemačka */
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        .carousel-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            color: var(--budva-white);
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-controls button:hover {
+            background: var(--budva-blue);
+        }
+
+        /* Responzivnost */
+        @media (max-width: 768px) {
+            .reviews-section {
+                padding: 1rem;
+            }
+
+            .reviews-section h2 {
+                font-size: 2rem;
+            }
+
+            .review-card {
+                padding: 1.5rem;
+            }
+
+            .review-card p {
+                font-size: 1rem;
+            }
+
+            .review-author img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .review-author h4 {
+                font-size: 1.1rem;
+            }
+
+            .carousel-controls button {
+                font-size: 1.2rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reviews-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .review-card {
+                padding: 1rem;
+            }
+
+            .review-card p {
+                font-size: 0.95rem;
+            }
+
+            .review-author img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .review-author h4 {
+                font-size: 1rem;
+            }
+
+            .carousel-controls button {
+                font-size 1rem;
+                padding: 0.3rem 0.6rem;
+            }
+        }
+
+         /* Stilovi za text-ticker */
+
+         :root {
+            --budva-blue: #006994;
+            --budva-gold: #D4A017;
+            --budva-white: #F5F6F5;
+            --budva-dark: #00344A;
+            --animation-duration: 25s; /* Trajanje klizanja teksta */
+        }
+        .text-ticker {
+            background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark)); /* Gradient kao navbar/footer */
+            padding: 1rem;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Senka slična navbaru */
+            overflow: hidden; /* Sakriva tekst izvan granica */
+            white-space: nowrap; /* Tekst u jednoj liniji */
+        }
+
+        .text-ticker-content {
+            color: var(--budva-white); /* Bela boja teksta */
+            font-size: 1.5rem; /* Srednja veličina fonta */
+            font-family: Arial, sans-serif; /* Jednostavan font */
+            font-weight: 500; /* Srednja debljina */
+            display: inline-block; /* Omogućava animaciju */
+            animation: slide var(--animation-duration) linear infinite; /* Klizanje s desna na levo */
+        }
+
+        .text-ticker-content b {
+            color: var(--budva-gold); /* Zlatna boja za podebljani tekst */
+        }
+
+        /* Animacija klizanja s desna na levo */
+        @keyframes slide {
+            0% {
+                transform: translateX(100%); /* Početak s desne strane */
+            }
+            100% {
+                transform: translateX(-100%); /* Kraj na levoj strani */
+            }
+        }
+
+        /* Responzivnost */
+        @media (max-width: 768px) {
+            .text-ticker {
+                padding: 0.8rem;
+            }
+            .text-ticker-content {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text-ticker {
+                padding: 0.6rem;
+            }
+            .text-ticker-content {
+                font-size: 1rem;
+            }
+        }
+
+
+        /* linija */
+        .custom-line {
+    border: none; /* Uklanja podrazumevani border */
+    height: 4px; /* Debljina linije 3px */
+    background: var(--budva-gold); /* Zlatna boja iz tvojih stilova */
+    margin: 2rem 0; /* Razmak iznad i ispod linije */
+}
+
+
+             /* logo city */
+
+
+        .centered-logo {
+            width: 550px; /* Širina logoa */
+            height: 600px; /* Visina logoa */
+            object-fit: contain; /* Održava proporcije logoa */
+        }
+
+           @media (max-width: 768px) {
+            .centered-logo {
+                width: 300px; /* Smanjena širina za tablete */
+                height: 350px; /* Smanjena visina za tablete */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .centered-logo {
+                width: 200px; /* Još manja širina za telefone */
+                height: 250px; /* Još manja visina za telefone */
+            }
+        }
+
+        /* info */
+     .contact-content {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+.contact-info {
+    background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark)); /* Plavi gradient */
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-info:hover {
+    transform: translateY(-5px);
+}
+
+.contact-info h2 {
+    color: var(--budva-gold); /* Zlatna slova */
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    text-align: center;
+}
+
+.contact-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--budva-white); /* Bela linija ispod naslova za kontrast */
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.contact-info-item:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.1); /* Suptilni hover efekt */
+    border-radius: 5px;
+}
+
+.contact-info-item i {
+    color: var(--budva-gold); /* Zlatne ikone */
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    width: 30px;
+    text-align: center;
+}
+
+.contact-info-item span {
+    color: var(--budva-gold); /* Zlatna slova */
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Responzivnost */
+@media (max-width: 768px) {
+    .contact-content {
+        padding: 1rem;
+        margin: 2rem auto;
+    }
+
+    .contact-info {
+        padding: 1.5rem;
+    }
+
+    .contact-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact-info-item {
+        margin: 1rem 0;
+    }
+
+    .contact-info-item i {
+        font-size: 1.3rem;
+        margin-right: 0.8rem;
+    }
+
+    .contact-info-item span {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .contact-info-item i {
+        font-size: 1.2rem;
+        width: 25px;
+    }
+
+    .contact-info-item span {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* dugme */ 
+
+.reserve-btn {
+    display: inline-block;
+    background: var(--budva-gold); /* Zlatna pozadina */
+    color: var(--budva-dark); /* Tamna boja teksta za kontrast */
+    padding: 1rem 3rem; /* Šire dugme */
+    border-radius: 25px; /* Zaobljene ivice */
+    text-decoration: none; /* Bez podvlačenja */
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Senka za dubinu */
+    margin-top: 2rem; /* Razmak iznad dugmeta */
+}
+
+.reserve-btn:hover {
+    background: var(--budva-white); /* Bela pozadina na hover */
+    color: var(--budva-blue); /* Plava boja teksta na hover */
+    transform: translateY(-3px); /* Suptilni lift efekat */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Jača senka na hover */
+}
+
+/* Responzivnost */
+@media (max-width: 768px) {
+    .reserve-btn {
+        padding: 0.8rem 2.5rem; /* Malo manje na tabletima */
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .reserve-btn {
+        padding: 0.7rem 2rem; /* Još manje na telefonima */
+        font-size: 1rem;
+        width: 100%; /* Puna širina na malim ekranima */
+        max-width: 300px; /* Maksimalna širina */
+    }
+}
+          
+/* mapa */
+.contact-map {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 800px;
+    /* mapa */
+.contact-map {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 800px;
+    border: 3px solid var(--budva-gold); /* Zlatni border debljine 3px */
+    border-radius: 20px; /* Zaobljene ivice od 20px */
+}
+
+/* Media query za mobilne uređaje */
+@media (max-width: 768px) {
+    .contact-map iframe {
+        height: 400px; /* Smanjena visina za mobilne uređaje */
+        border: 3px solid var(--budva-gold); /* Zlatni border zadržan */
+        border-radius: 20px; /* Zaobljene ivice zadržane */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-map iframe {
+        height: 300px; /* Još manja visina za manje ekrane */
+        border: 3px solid var(--budva-gold); /* Zlatni border zadržan */
+        border-radius: 20px; /* Zaobljene ivice zadržane */
+    }
+}
+    border-radius: 20px; /* Zaobljene ivice od 20px */
+}
+
+/* Media query za mobilne uređaje */
+@media (max-width: 768px) {
+    .contact-map iframe {
+        height: 400px; /* Smanjena visina za mobilne uređaje */
+        border: 3px solid var(--budva-gold); /* Zlatni border zadržan */
+        border-radius: 20px; /* Zaobljene ivice zadržane */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-map iframe {
+        height: 300px; /* Još manja visina za manje ekrane */
+        border: 3px solid var(--budva-gold); /* Zlatni border zadržan */
+        border-radius: 20px; /* Zaobljene ivice zadržane */
+    }
+}
+
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
+   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
             <img src="navi-logo1.jpg" alt="City Apartments Logo" class="navbar-logo">
@@ -489,9 +1215,9 @@
                     </li>
                 </ul>
                 <div class="social-links">
-                    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="social-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+                   <a href="https://wa.me/38269871777" target="_blank" class="social-icon">
+                   <i class="fab fa-whatsapp"></i>
+                </a>
                     <a href="https://instagram.com" target="_blank" class="social-icon">
                         <i class="fab fa-instagram"></i>
                     </a>
@@ -504,225 +1230,236 @@
     </nav>
 
     <main>
-        <section class="gallery-section" id="galerija">
-            <div class="gallery-header">
-                <h1>Galerija</h1>
-                <p>Pogledajte našu kolekciju slika apartmana, enterijera i predivnih pogleda koje City Apartments nudi.</p>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>City Apartments</h1>
+                <p>Uživajte u luksuznom smještaju u srcu <b>Budve</b>, uz vrhunsku uslugu i nezaboravan odmor.</p>
+                <a href="kontakti.html" class="hero-btn">Rezervišite sada</a>
             </div>
-
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">Sve</button>
-                <button class="filter-btn" data-filter="apartmani">Apartmani</button>
-                <button class="filter-btn" data-filter="enterijer">Enterijer</button>
-                <button class="filter-btn" data-filter="pogled">Pogled</button>
-            </div>
-
-          <div class="gallery-grid">
-    <div class="gallery-item" data-category="apartmani">
-        <img src="spoljna1.jpg" alt="Apartman 1" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="spoljna1.jpg">
-        <div class="overlay">
-            <h3>Apartman 1</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="enterijer">
-        <img src="zgrada1.jpg" alt="Enterijer 1" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="zgrada1.jpg">
-        <div class="overlay">
-            <h3>Enterijer 1</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="pogled">
-        <img src="pogled1.jpg" alt="Pogled 1" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="pogled1.jpg">
-        <div class="overlay">
-            <h3>Pogled 1</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="apartmani">
-        <img src="delux1B.jpg" alt="Apartman 2" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="delux1B.jpg">
-        <div class="overlay">
-            <h3>Apartman 2</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="enterijer">
-        <img src="enterijer-1.jpg" alt="Enterijer 2" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="enterijer-1.jpg">
-        <div class="overlay">
-            <h3>Enterijer 2</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="pogled">
-        <img src="pogled2.jpg" alt="Pogled 2" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="pogled2.jpg">
-        <div class="overlay">
-            <h3>Pogled 2</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="apartmani">
-        <img src="delux1.jpg" alt="Apartman 3" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="delux1.jpg">
-        <div class="overlay">
-            <h3>Apartman 3</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="enterijer">
-        <img src="slika-za3.jpg" alt="Enterijer 3" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="slika-za3.jpg">
-        <div class="overlay">
-            <h3>Enterijer 3</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="pogled">
-        <img src="pogled3.jpg" alt="Pogled 3" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="pogled3.jpg">
-        <div class="overlay">
-            <h3>Pogled 3</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="apartmani">
-        <img src="apartmn44.jpg" alt="Apartman 4" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="apartmn44.jpg">
-        <div class="overlay">
-            <h3>Apartman 4</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="enterijer">
-        <img src="delux2a.jpg" alt="Enterijer 4" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="delux2a.jpg">
-        <div class="overlay">
-            <h3>Enterijer 4</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="pogled">
-        <img src="pogled8.jpg" alt="Pogled 4" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="pogled8.jpg">
-        <div class="overlay">
-            <h3>Pogled 4</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="apartmani">
-        <img src="apartman5.jpg" alt="Apartman 5" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="apartman5.jpg">
-        <div class="overlay">
-            <h3>Apartman 5</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="enterijer">
-        <img src="spavaca.jpg" alt="Enterijer 5" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="spavaca.jpg">
-        <div class="overlay">
-            <h3>Enterijer 5</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="pogled">
-        <img src="pogled6.jpg" alt="Pogled 5" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="pogled6.jpg">
-        <div class="overlay">
-            <h3>Pogled 5</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="apartmani">
-        <img src="delux2B.jpg" alt="Apartman 6" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="delux2B.jpg">
-        <div class="overlay">
-            <h3>Apartman 6</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="enterijer">
-        <img src="emterijer7.jpg" alt="Enterijer 6" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="emterijer7.jpg">
-        <div class="overlay">
-            <h3>Enterijer 6</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="pogled">
-        <img src="sv.stefan.jpg" alt="Pogled 6" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="sv.stefan.jpg">
-        <div class="overlay">
-            <h3>Pogled 6</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="apartmani">
-        <img src="delux2.jpg" alt="Apartman 7" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="delux2.jpg">
-        <div class="overlay">
-            <h3>Apartman 7</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="enterijer">
-        <img src="enterijerlux.jpg" alt="Enterijer 7" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="enterijerlux.jpg">
-        <div class="overlay">
-            <h3>Enterijer 7</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="pogled">
-        <img src="pogler11.jpg" alt="Pogled 7" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="pogler11.jpg">
-        <div class="overlay">
-            <h3>Pogled 7</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="apartmani">
-        <img src="apartman8.jpg" alt="Apartman 8" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="apartman8.jpg">
-        <div class="overlay">
-            <h3>Apartman 8</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="enterijer">
-        <img src="delux5.jpg" alt="Enterijer 8" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="delux5.jpg">
-        <div class="overlay">
-            <h3>Enterijer 8</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="pogled">
-        <img src="pogled15.jpg" alt="Pogled 8" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="pogled15.jpg">
-        <div class="overlay">
-            <h3>Pogled 8</h3>
-        </div>
-    </div>
- <div class="gallery-item" data-category="apartmani">
-        <img src="apartman99.jpg" alt="Apartman 9" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="apartman99.jpg">
-        <div class="overlay">
-            <h3>Apartman 9</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="enterijer">
-        <img src="enterijer9.jpg" alt="Enterijer 9" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="enterijer9.jpg">
-        <div class="overlay">
-            <h3>Enterijer 9</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="pogled">
-        <img src="hero-slika.jpg" alt="Pogled 9" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="hero-slika.jpg">
-        <div class="overlay">
-            <h3>Pogled 9</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="apartmani">
-        <img src="delux5a.jpg" alt="Apartman 10" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="delux5a.jpg">
-        <div class="overlay">
-            <h3>Apartman 10</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="enterijer">
-        <img src="enterijer555.jpg" alt="Enterijer 10" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="enterijer555.jpg">
-        <div class="overlay">
-            <h3>Enterijer 10</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="pogled">
-        <img src="delux4.jpg" alt="Pogled 10" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="delux4.jpg">
-        <div class="overlay">
-            <h3>Pogled 10</h3>
-        </div>
-    </div>
-
-       <div class="gallery-item" data-category="apartmani">
-        <img src="novo-ap5.jpg" alt="Apartman 11" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="novo-ap5.jpg">
-        <div class="overlay">
-            <h3>Apartman 11</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="enterijer">
-        <img src="novo-ap4.jpg" alt="Enterijer 11" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="novo-ap4.jpg">
-        <div class="overlay">
-            <h3>Enterijer 11</h3>
-        </div>
-    </div>
-    <div class="gallery-item" data-category="pogled">
-        <img src="novo-ap6.jpg" alt="Pogled 11" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="novo-ap6.jpg">
-        <div class="overlay">
-            <h3>Pogled 11</h3>
-        </div>
-    </div>
-
-</div>
         </section>
+
+        <section class="apartments-section">
+            <h2>Deluxe Apartmani</h2>
+            <div class="apartments-grid">
+                <div class="apartment-card">
+                    <img src="delux1.jpg" alt="Deluxe Apartman 1">
+                    <div class="apartment-card-content">
+                        <h3>Three bedroom Apartment</h3>
+                        <button data-bs-toggle="modal" data-bs-target="#apartman1Modal">Saznaj više</button>
+                    </div>
+                </div>
+                <div class="apartment-card">
+                    <img src="delux2B.jpg" alt="Deluxe Apartman 2">
+                    <div class="apartment-card-content">
+                        <h3>Black&White Apartment</h3>
+                        <button data-bs-toggle="modal" data-bs-target="#apartman2Modal">Saznaj više</button>
+                    </div>
+                </div>
+                <div class="apartment-card">
+                    <img src="delux3a.jpg" alt="Deluxe Apartman 3">
+                    <div class="apartment-card-content">
+                        <h3>Deluxe Apartment </h3>
+                        <button data-bs-toggle="modal" data-bs-target="#apartman3Modal">Saznaj više</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modali -->
+            <div class="modal fade" id="apartman1Modal" tabindex="-1" aria-labelledby="apartman1ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="apartman1ModalLabel">Three bedroom Apartment</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="delux2.jpg" class="main-image" alt="Deluxe Apartman 1">
+                            <div class="small-images">
+                                <img src="delux3.jpg" alt="Detalj 1">
+                                <img src="delux4.jpg" alt="Detalj 2">
+                                <img src="delux5.jpg" alt="Detalj 3">
+                            </div>
+                            <p>3 spavaće sobe, 3 kupatila, pomoćni toalet, površine 240 m2… Potpuno opremljena kuhinja, 5. sprat… Mikrotalasna, tost za  hleb, 2 frižidera, vešeraj!!</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="kontakti.html" class="reserve-btn">Rezerviši</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="apartman2Modal" tabindex="-1" aria-labelledby="apartman2ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="apartman2ModalLabel">Black&White Apartment</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="novo-ap5.jpg" class="main-image" alt="Deluxe Apartman 2">
+                            <div class="small-images">
+                                <img src="novo-ap6.jpg" alt="Detalj 1">
+                                <img src="novo-ap4.jpg" alt="Detalj 2">
+                                <img src="novo-ap3.jpg" alt="Detalj 3">
+                            </div>
+                            <p>100 kvadrata - dvosoban Stan - Kupatilo - dodatno WC - Balkon 3 kvadrata, kuhinja full opremljena, peti sprat, parcijalan pogled na more.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="kontakti.html" class="reserve-btn">Rezerviši</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="apartman3Modal" tabindex="-1" aria-labelledby="apartman3ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="apartman3ModalLabel">Deluxe Apartment </h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="novo-ap.jpg" class="main-image" alt="Deluxe Apartman 3">
+                            <div class="small-images">
+                                <img src="emterijer7.jpg" alt="Detalj 1">
+                                <img src="novo-ap2.jpg" alt="Detalj 2">
+                                <img src="delux4a.jpg" alt="Detalj 3">
+                            </div>
+                            <p>120 kvadrata, dvosoban. Kupatilo, dodatno wc, kuhinja full opeemljena. Balkon ka prednjoj strani, balkon u sobama.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="kontakti.html" class="reserve-btn">Rezerviši</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>O nama</h2>
+            <p><b>City Apartments</b> je porodični biznis s dugogodišnjom tradicijom, prepoznat kao lider u pružanju vrhunskog apartmanskog smještaja na crnogorskom primorju, sa sjedištem u <b>Budvi</b>. Naša misija je da svakom gostu pružimo nezaboravno iskustvo, kombinujući udobnost, luksuz i domaću atmosferu.</p>
+                    <p>Nalazimo se na idealnoj lokaciji u centru grada, blizu plaža, restorana i glavnih atrakcija u srcu <b>Budve</b>. Naši apartmani su moderno opremljeni i pažljivo dizajnirani kako bi zadovoljili i najprefinjenije ukuse, pružajući luksuz i udobnost koji premašuju očekivanja i najzahtjevnijih gostiju!</p>
+
+
+        </section>
+
+            <div class="text-ticker">
+        <div class="text-ticker-content">
+            Usluge tokom boravka u - <b>CITY APARTMENTS</b> - transferi od/do aerodroma, rentiranje automobila, motocikala i bicikala, kao i organizovanje izleta i krstarenja(pecanje, ronjenje) na svim ekskluzivnim lokalitetima u <b>Crnoj Gori</b>.
+        </div>
+        </div>
+
+
+
+         <div class="location-advantages">
+        <h2>Prednosti Lokacije</h2>
+        <div class="location-image-container">
+            <img src="destinacija.png" alt="Prednosti Lokacije" class="location-image">
+        </div>
+
+
+                <div class="reviews-section">
+        <h2>Komentari Gostiju</h2>
+        <div class="reviews-carousel">
+            <div class="reviews-track">
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>“Good location near old town Budva and very good restaurants nearby in walking distance . Beautiful street view from terrace. Wladimir is a very helpful person.”</p>
+                    <div class="review-author">
+                        <img src="komentar-slika1.png" alt="Jaison.">
+                        <span class="flag ch"></span>
+                        <h4>Jaison - Switzerland</h4>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>Najbolji odmor do sada! Pogled na more iz apartmana je predivan, a plaža je na samo nekoliko koraka. Porodični odmor za pamćenje</p>
+                    <div class="review-author">
+                        <img src="komentar-slikaSR.png" alt="Jelena P. ">
+                        <span class="flag rs"></span>
+                        <h4>Jelena P. - Novi Sad</h4>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>"City Apartments u Budvi su savršeno mjesto za smistiti se! Apartmani su moderni, prostrani i pažljivo opremljeni kako bi pružili maksimalan komfor. Lokacija je idealna, a usluga je na visokom nivou. Savršeno za opuštanje i uživanje na crnogorskom primorju!"</p>
+                    <div class="review-author">
+                        <img src="komentar-na.png" alt="Ana K.">
+                        <span class="flag hr"></span>
+                        <h4>Ana K. - Zagreb</h4>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>"City Apartments in Budva bieten eine perfekte Mischung aus Luxus, Komfort und einer unschlagbaren Lage. Die modern ausgestatteten Apartments übertreffen alle Erwartungen und sorgen für einen unvergesslichen Aufenthalt. Das freundliche Personal und die Liebe zum Detail machen jeden Moment zu etwas Besonderem. Absolut empfehlenswert für alle, die das Beste vom Urlaub suchen!"</p>
+                    <div class="review-author">
+                        <img src="komentar-slikaDE.png" alt="Stefan M.">
+                        <span class="flag de"></span>
+                        <h4>Stefan M. - München</h4>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>idealan izbor za porodični odmor iz snova! Prostrani i moderni apartmani pružaju sve što je potrebno za komforan boravak, dok toplina i pažnja domaćina stvaraju atmosferu kao kod kuće. Blizina plaža, restorana i atrakcija omogućava savršene porodične trenutke ispunjene zabavom i zajedničkim avanturama. Ovo je mjesto gdje porodice stvaraju uspomene koje će trajati cijeli život!".</p>
+                    <div class="review-author">
+                        <img src="komentar-slikaSRm.png" alt="Marko T.">
+                        <span class="flag rs"></span>
+                        <h4>Marko T. -Beograd</h4>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>“The bed was comfy, the balcony had great views and was close to the centre, beach and restaurants/bars/shopping.
+The staff were very friendly and helpful keeping in touch so that when our flight...”</p>
+                    <div class="review-author">
+                        <img src="komenrar-slikoG.png" alt="Graeme">
+                        <span class="flag eng"></span>
+                        <h4>Deborah - United Kingdom</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+            <hr class="custom-line"> 
+
+             <img src="logo-City.png" alt="City Apartments Logo" class="centered-logo">
+    
+
+      <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Kontakt informacije</h2>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+382 68 871 777</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@city-apartments.me</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Ul. Mediteranska 53, 85310 Budva, Crna Gora</span>
+                    </div>
+                </div>
+
+
+                   </div>
+    <a href="kontakti.html" class="reserve-btn">Rezerviši odmah</a>
+</div>
+
+    
+     <div class="contact-map">
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2951.7112471586065!2d18.83589647659979!3d42.284686839859376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134dd49afbd80185%3A0xe4f342da8593a176!2sCity%20Apartments!5e0!3m2!1sen!2s!4v1742271793364!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
     </main>
 
-      <footer class="footer">
+    <footer class="footer">
         <div class="footer-container">
             <div class="footer-column">
                 <h4>Navigacija</h4>
@@ -757,28 +1494,13 @@
         </div>
     </footer>
 
-    <!-- Modal za uvećanu sliku -->
-    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; right: 1rem; top: 1rem; z-index: 11;"></button>
-                <div class="modal-body">
-                    <img src="" alt="Uvećana slika" class="modal-image" id="modalImage">
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const navbar = document.querySelector('.navbar');
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
 
-            // Aktivni link u navbaru
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
                     navLinks.forEach(l => l.classList.remove('active'));
@@ -786,7 +1508,6 @@
                 });
             });
 
-            // Efekat skrolovanja navigacije
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     navbar.style.padding = '1rem 2rem';
@@ -796,42 +1517,43 @@
                     navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
                 }
             });
-
-            // Filtriranje galerije
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-
-                    const filter = this.getAttribute('data-filter');
-
-                    galleryItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.style.display = 'block';
-                            setTimeout(() => item.style.opacity = '1', 10);
-                        } else {
-                            item.style.opacity = '0';
-                            setTimeout(() => item.style.display = 'none', 300);
-                        }
-                    });
-                });
-            });
-
-            // Inicijalna postavka opacity za animaciju
-            galleryItems.forEach(item => {
-                item.style.transition = 'opacity 0.3s ease';
-                item.style.opacity = '1';
-            });
-
-            // Postavljanje slike u modal pri otvaranju
-            const modal = document.getElementById('imageModal');
-            modal.addEventListener('show.bs.modal', (event) => {
-                const button = event.relatedTarget;
-                const imageSrc = button.getAttribute('data-bs-image');
-                const modalImage = document.getElementById('modalImage');
-                modalImage.src = imageSrc || button.src; // Koristi data-bs-image ili izvornu sliku ako nije definirana
-            });
         });
+
+
+       const track = document.querySelector('.reviews-track');
+        const cards = document.querySelectorAll('.review-card');
+        const totalCards = cards.length;
+        let currentIndex = 0;
+
+        // Funkcija za pomicanje karusela
+        function moveCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Automatsko pomicanje svakih 5 sekundi
+        function autoSlide() {
+            currentIndex = (currentIndex + 1) % totalCards;
+            moveCarousel();
+        }
+
+        // Postavi interval za automatsko pomicanje
+        let slideInterval = setInterval(autoSlide, 5000);
+
+        // Ručni klik na strelice
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            clearInterval(slideInterval);
+            currentIndex = (currentIndex + 1) % totalCards;
+            moveCarousel();
+            slideInterval = setInterval(autoSlide, 5000);
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            clearInterval(slideInterval);
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            moveCarousel();
+            slideInterval = setInterval(autoSlide, 5000);
+        });
+
     </script>
 </body>
 </html>
