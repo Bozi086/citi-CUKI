@@ -10,127 +10,117 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="logo-City.png">
     <style>
-            :root {
-    --budva-blue: #006994;
-    --budva-gold: #D4A017;
-    --budva-white: #F5F6F5;
-    --budva-dark: #00344A;
-}
+        :root {
+            --budva-blue: #006994;
+            --budva-gold: #D4A017;
+            --budva-white: #F5F6F5;
+            --budva-dark: #00344A;
+        }
 
-/* Navbar stilovi */
-.navbar {
-    background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
-    padding: 1.5rem 2rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        /* Navbar stilovi */
+        .navbar {
+            background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    transition: transform 0.3s ease;
-}
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            padding: 0;
+            transition: transform 0.3s ease;
+        }
 
-.navbar-brand:hover {
-    transform: scale(1.05);
-}
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
 
-/* Stilovi za logo sa zlatnom senkom koja kruži */
-.navbar-logo {
-    height: 40px;
-    width: auto;
-    border-radius: 10px; /* Zadržano srednje zaobljenje */
-    animation: glowingShadow 2s infinite ease-in-out; /* Animacija senke */
-}
+        .navbar-logo {
+            height: 40px;
+            width: auto;
+            border-radius: 10px;
+            animation: glowingShadow 2s infinite ease-in-out;
+        }
 
-/* Animacija za zlatnu senku koja kruži */
-@keyframes glowingShadow {
-    0% {
-        box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold);
-    }
-    50% {
-        box-shadow: 0 0 20px var(--budva-gold), 0 0 30px var(--budva-gold), 0 0 40px var(--budva-gold);
-    }
-    100% {
-        box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold);
-    }
-}
+        @keyframes glowingShadow {
+            0% { box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold); }
+            50% { box-shadow: 0 0 20px var(--budva-gold), 0 0 30px var(--budva-gold), 0 0 40px var(--budva-gold); }
+            100% { box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold); }
+        }
 
-.navbar-brand:hover .navbar-logo {
-    transform: scale(1.05); /* Zadržan hover efekat */
-}
+        .navbar-brand:hover .navbar-logo {
+            transform: scale(1.05);
+        }
 
-/* Ostatak postojećih stilova */
-.nav-link {
-    color: var(--budva-white) !important;
-    margin: 0 1.5rem;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    transition: all 0.4s ease;
-}
+        .nav-link {
+            color: var(--budva-white) !important;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.4s ease;
+        }
 
-.nav-link:hover {
-    color: var(--budva-gold) !important;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-}
+        .nav-link:hover {
+            color: var(--budva-gold) !important;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
 
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
 
-.social-icon {
-    color: var(--budva-white);
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
+        .social-icon {
+            color: var(--budva-white);
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
 
-.social-icon:hover {
-    color: var(--budva-gold);
-    background: rgba(255, 255, 255, 0.1);
-    transform: rotate(360deg);
-}
+        .social-icon:hover {
+            color: var(--budva-gold);
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(360deg);
+        }
 
-.navbar-toggler {
-    border: 2px solid var(--budva-white);
-    border-radius: 5px;
-    padding: 0.5rem;
-}
+        .navbar-toggler {
+            border: 2px solid var(--budva-white);
+            border-radius: 5px;
+            padding: 0.5rem;
+        }
 
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 246, 245, 0.95)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 246, 245, 0.95)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
 
-/* Responzivnost */
-@media (max-width: 991px) {
-    .navbar-collapse {
-        background: var(--budva-dark);
-        padding: 1rem;
-        border-radius: 10px;
-        margin-top: 1rem;
-    }
-    .social-links {
-        margin-top: 1rem;
-        justify-content: center;
-    }
-}
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: var(--budva-dark);
+                padding: 1rem;
+                border-radius: 10px;
+                margin-top: 1rem;
+            }
+            .social-links {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+        }
 
-@media (max-width: 768px) {
-    .navbar-logo {
-        height: 30px;
-        border-radius: 8px; /* Smanjeno zaobljenje */
-        animation: glowingShadow 2s infinite ease-in-out; /* Animacija zadržana */
-    }
-}
+        @media (max-width: 768px) {
+            .navbar-logo {
+                height: 30px;
+                border-radius: 8px;
+                animation: glowingShadow 2s infinite ease-in-out;
+            }
+        }
 
-        /* Modernizirani Footer */
+        /* Footer */
         .footer {
             background: linear-gradient(135deg, var(--budva-dark), var(--budva-blue));
             color: var(--budva-white);
@@ -237,7 +227,7 @@
             }
         }
 
-        /* Sticky footer korekcije */
+        /* Sticky footer */
         body {
             margin: 0;
             display: flex;
@@ -250,7 +240,7 @@
             background-color: var(--budva-white);
         }
 
-        /* Kontakti stilovi */
+        /* Kontakt sekcija */
         .contact-section {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -321,126 +311,106 @@
             color: var(--budva-gold);
             font-size: 1.3rem;
         }
-         /* web3 forma */
-       .custom-contact-form {
-    background: white;
-    padding: 2rem; /* Matches .contact-form padding */
-    border-radius: 10px; /* Matches .contact-form */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Matches .contact-form */
-    max-width: 100%; /* Adjusted to match grid layout behavior */
-    width: 100%; /* Ensures it fills its container like .contact-form */
-}
 
-.custom-contact-form h4 {
-    font-size: 1.8rem; /* Matches .contact-info h2 size */
-    color: var(--budva-gold);
-    margin-bottom: 1.5rem; /* Matches .contact-info h2 */
-    position: relative;
-    padding-bottom: 0.5rem;
-    text-align: left; /* Matches typical form header alignment */
-}
+        /* Web3 forma */
+        .custom-contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-.custom-contact-form h4::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0; /* Aligned left to match .footer-column h4 */
-    transform: none; /* Removed centering */
-    width: 50px;
-    height: 2px;
-    background: var(--budva-gold);
-}
+        .custom-contact-form h4 {
+            font-size: 1.8rem;
+            color: var(--budva-gold);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            text-align: left;
+        }
 
-.custom-contact-form .form-group {
-    margin-bottom: 1.5rem; /* Matches .form-group */
-}
+        .custom-contact-form h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--budva-gold);
+        }
 
-.custom-contact-form .form-group label {
-    display: block;
-    color: var(--budva-dark);
-    font-size: 1rem; /* Matches .form-group label */
-    margin-bottom: 0.5rem; /* Matches .form-group label */
-}
+        .custom-contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
 
-.custom-contact-form .form-group input,
-.custom-contact-form .form-group textarea {
-    width: 100%;
-    padding: 0.75rem; /* Matches .form-group input/textarea */
-    border: 1px solid var(--budva-blue);
-    border-radius: 5px; /* Matches .form-group input/textarea */
-    font-size: 1rem; /* Matches .form-group input/textarea */
-    transition: border-color 0.3s ease;
-    box-sizing: border-box;
-}
+        .custom-contact-form .form-group label {
+            display: block;
+            color: var(--budva-dark);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
 
-.custom-contact-form .form-group input:focus,
-.custom-contact-form .form-group textarea:focus {
-    outline: none;
-    border-color: var(--budva-gold);
-}
+        .custom-contact-form .form-group input,
+        .custom-contact-form .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--budva-blue);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
 
-.custom-contact-form .form-group textarea {
-    resize: vertical;
-    min-height: 150px; /* Matches .form-group textarea */
-}
+        .custom-contact-form .form-group input:focus,
+        .custom-contact-form .form-group textarea:focus {
+            outline: none;
+            border-color: var(--budva-gold);
+        }
 
-.custom-contact-form .submit-btn {
-    background: var(--budva-blue);
-    color: var(--budva-white);
-    border: none;
-    padding: 0.75rem 2rem; /* Matches .submit-btn */
-    border-radius: 25px; /* Matches .submit-btn */
-    font-size: 1rem; /* Matches .submit-btn */
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
-    display: block;
-    margin: 0 auto;
-}
+        .custom-contact-form .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
 
-/* Hover effect matches your .submit-btn */
-.custom-contact-form .submit-btn:hover {
-    background: var(--budva-gold);
-    color: var(--budva-dark);
-}
+        .custom-contact-form .submit-btn {
+            background: var(--budva-blue);
+            color: var(--budva-white);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
 
-/* Responsive adjustments matching your example */
-@media (max-width: 768px) {
-    .custom-contact-form {
-        padding: 1.5rem; /* Matches .contact-form responsive */
-    }
+        .custom-contact-form .submit-btn:hover {
+            background: var(--budva-gold);
+            color: var(--budva-dark);
+        }
 
-    .custom-contact-form h4 {
-        font-size: 1.5rem; /* Matches .contact-form h2 responsive */
-    }
-
-    .custom-contact-form .form-group label {
-        font-size: 0.95rem; /* Matches .form-group label responsive */
-    }
-
-    .custom-contact-form .form-group input,
-    .custom-contact-form .form-group textarea {
-        font-size: 0.95rem; /* Matches .form-group input responsive */
-        padding: 0.65rem; /* Matches .form-group input responsive */
-    }
-
-    .custom-contact-form .submit-btn {
-        padding: 0.65rem 1.5rem; /* Matches .submit-btn responsive */
-        font-size: 0.95rem; /* Matches .submit-btn responsive */
-    }
-}
-          /* mapa */
+        /* Mapa */
         .contact-map {
             margin-bottom: 4rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-map iframe {
             width: 100%;
-            height: 400px;
+            height: 600px;
             border: none;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: block;
         }
 
+        /* Responzivnost */
         @media (max-width: 768px) {
             .contact-content {
                 grid-template-columns: 1fr;
@@ -450,9 +420,31 @@
                 font-size: 2rem;
             }
 
-            .contact-info h2,
-            .contact-form h2 {
+            .contact-info h2 {
                 font-size: 1.5rem;
+            }
+
+            .custom-contact-form {
+                padding: 1.5rem;
+            }
+
+            .custom-contact-form h4 {
+                font-size: 1.5rem;
+            }
+
+            .custom-contact-form .form-group label {
+                font-size: 0.95rem;
+            }
+
+            .custom-contact-form .form-group input,
+            .custom-contact-form .form-group textarea {
+                font-size: 0.95rem;
+                padding: 0.65rem;
+            }
+
+            .custom-contact-form .submit-btn {
+                padding: 0.65rem 1.5rem;
+                font-size: 0.95rem;
             }
 
             .contact-map iframe {
@@ -463,15 +455,15 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-            <img src="navi-logo1.jpg" alt="City Apartments Logo" class="navbar-logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-            data-bs-target="#navbarNav" aria-controls="navbarNav" 
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="navi-logo1.jpg" alt="City Apartments Logo" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
@@ -488,9 +480,9 @@
                     </li>
                 </ul>
                 <div class="social-links">
-                <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="social-icon">
-                    <i class="fab fa-whatsapp"></i>
-                      </a>
+                    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                     <a href="https://instagram.com" target="_blank" class="social-icon">
                         <i class="fab fa-instagram"></i>
                     </a>
@@ -526,36 +518,34 @@
                     </div>
                 </div>
 
-               <form action="https://api.web3forms.com/submit" method="POST" class="custom-contact-form">
-    <input type="hidden" name="access_key" value="3373d581-890c-440e-b315-ba8113c92a34">
-              <h4>Rezervacije</h4>
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" required>
-    </div>
-    
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
-    </div>
-    
-    <div class="form-group">
-        <label for="message">Message</label>
-        <textarea name="message" id="message" required></textarea>
-    </div>
-    
-    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-    
-    <button type="submit" class="submit-btn">Submit Form</button>
-</form>
+                <form action="https://api.web3forms.com/submit" method="POST" class="custom-contact-form">
+                    <input type="hidden" name="access_key" value="3373d581-890c-440e-b315-ba8113c92a34">
+                    <h4>Rezervacije</h4>
+                    <div class="form-group">
+                        <label for="name">Ime</label>
+                        <input type="text" name="name" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Poruka</label>
+                        <textarea name="message" id="message" required></textarea>
+                    </div>
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <button type="submit" class="submit-btn">Pošalji</button>
+                </form>
+            </div>
 
             <div class="contact-map">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2951.7112471586065!2d18.83589647659979!3d42.284686839859376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134dd49afbd80185%3A0xe4f342da8593a176!2sCity%20Apartments!5e0!3m2!1sen!2s!4v1742271793364!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2951.7112471586065!2d18.83589647659979!3d42.284686839859376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134dd49afbd80185%3A0xe4f342da8593a176!2sCity%20Apartments!5e0!3m2!1sen!2s!4v1742271793364!5m2!1sen!2s" 
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
     </main>
 
-      <footer class="footer">
+    <footer class="footer">
         <div class="footer-container">
             <div class="footer-column">
                 <h4>Navigacija</h4>
@@ -574,8 +564,8 @@
                 <h4>Pratite nas</h4>
                 <div class="footer-social">
                     <a href="https://wa.me/38269871777" target="_blank" class="social-icon">
-                   <i class="fab fa-whatsapp"></i>
-                </a>
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                     <a href="https://instagram.com" target="_blank" class="social-icon">
                         <i class="fab fa-instagram"></i>
                     </a>
