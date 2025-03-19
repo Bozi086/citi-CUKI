@@ -10,115 +10,127 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="logo-City.png">
     <style>
-        :root {
-            --budva-blue: #006994;
-            --budva-gold: #D4A017;
-            --budva-white: #F5F6F5;
-            --budva-dark: #00344A;
-        }
+      :root {
+    --budva-blue: #006994;
+    --budva-gold: #D4A017;
+    --budva-white: #F5F6F5;
+    --budva-dark: #00344A;
+}
 
-        /* Navbar stilovi */
-        .navbar {
-            background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
-            padding: 1.5rem 2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* Navbar stilovi */
+.navbar {
+    background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: padding 0.3s ease, box-shadow 0.3s ease; /* Dodata tranzicija */
+}
 
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            padding: 0;
-            transition: transform 0.3s ease;
-        }
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
 
-        .navbar-brand:hover {
-            transform: scale(1.05);
-        }
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
 
-        .navbar-logo {
-            height: 40px;
-            width: auto;
-            border-radius: 10px;
-            animation: glowingShadow 2s infinite ease-in-out;
-        }
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    border-radius: 10px;
+    animation: glowingShadow 2s infinite ease-in-out;
+}
 
-        @keyframes glowingShadow {
-            0% { box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold); }
-            50% { box-shadow: 0 0 20px var(--budva-gold), 0 0 30px var(--budva-gold), 0 0 40px var(--budva-gold); }
-            100% { box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold); }
-        }
+@keyframes glowingShadow {
+    0% { box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold); }
+    50% { box-shadow: 0 0 20px var(--budva-gold), 0 0 30px var(--budva-gold), 0 0 40px var(--budva-gold); }
+    100% { box-shadow: 0 0 10px var(--budva-gold), 0 0 20px var(--budva-gold); }
+}
 
-        .navbar-brand:hover .navbar-logo {
-            transform: scale(1.05);
-        }
+.navbar-brand:hover .navbar-logo {
+    transform: scale(1.05);
+}
 
-        .nav-link {
-            color: var(--budva-white) !important;
-            margin: 0 1.5rem;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.4s ease;
-        }
+.nav-link {
+    color: var(--budva-white) !important;
+    margin: 0 1.5rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+}
 
-        .nav-link:hover {
-            color: var(--budva-gold) !important;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
+.nav-link:hover {
+    color: var(--budva-gold) !important;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
+.nav-link.active {
+    color: var(--budva-gold) !important;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
 
-        .social-icon {
-            color: var(--budva-white);
-            font-size: 1.2rem;
-            padding: 0.5rem;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
 
-        .social-icon:hover {
-            color: var(--budva-gold);
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(360deg);
-        }
+.social-icon {
+    color: var(--budva-white);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
 
-        .navbar-toggler {
-            border: 2px solid var(--budva-white);
-            border-radius: 5px;
-            padding: 0.5rem;
-        }
+.social-icon:hover {
+    color: var(--budva-gold);
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(360deg);
+}
 
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 246, 245, 0.95)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
+.navbar-toggler {
+    border: 2px solid var(--budva-white);
+    border-radius: 5px;
+    padding: 0.5rem;
+}
 
-        @media (max-width: 991px) {
-            .navbar-collapse {
-                background: var(--budva-dark);
-                padding: 1rem;
-                border-radius: 10px;
-                margin-top: 1rem;
-            }
-            .social-links {
-                margin-top: 1rem;
-                justify-content: center;
-            }
-        }
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 246, 245, 0.95)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
 
-        @media (max-width: 768px) {
-            .navbar-logo {
-                height: 30px;
-                border-radius: 8px;
-                animation: glowingShadow 2s infinite ease-in-out;
-            }
-        }
+/* Responzivnost */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: var(--budva-dark);
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+    }
+    .social-links {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    .nav-link.active {
+        color: var(--budva-gold) !important;
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-logo {
+        height: 30px;
+        border-radius: 8px;
+        animation: glowingShadow 2s infinite ease-in-out;
+    }
+}
 
         /* Footer */
         .footer {
