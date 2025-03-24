@@ -15,10 +15,10 @@
             --budva-gold: #D4A017;
             --budva-white: #F5F6F5;
             --budva-dark: #00344A;
-            --animation-duration: 25s;
+            --animation-duration: 25s; /* Trajanje klizanja teksta */
         }
 
-        /* Navbar stilovi (Desktop unchanged) */
+        /* Navbar stilovi */
         .navbar {
             background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
             padding: 1.5rem 2rem;
@@ -107,56 +107,6 @@
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 246, 245, 0.95)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
-        /* Tablet adjustments */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .navbar {
-                padding: 1rem 1.5rem;
-            }
-            .navbar-collapse {
-                background: var(--budva-dark);
-                padding: 1rem;
-                border-radius: 10px;
-                margin-top: 0.5rem;
-            }
-            .nav-link {
-                margin: 0 1rem;
-                font-size: 1rem;
-            }
-            .social-links {
-                margin-top: 0.75rem;
-                justify-content: center;
-            }
-        }
-
-        /* Mobile adjustments */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem 1rem;
-            }
-            .navbar-logo {
-                height: 35px;
-            }
-            .navbar-collapse {
-                background: var(--budva-dark);
-                padding: 0.75rem;
-                border-radius: 8px;
-                margin-top: 0.5rem;
-            }
-            .nav-link {
-                margin: 0.5rem 0;
-                font-size: 0.9rem;
-                text-align: center;
-            }
-            .social-links {
-                margin-top: 0.5rem;
-                justify-content: center;
-                gap: 0.75rem;
-            }
-            .social-icon {
-                font-size: 1rem;
-            }
-        }
-
         /* Language switcher styles */
         .language-switcher {
             position: absolute;
@@ -186,30 +136,161 @@
             opacity: 1;
         }
 
-        /* Tablet and Mobile adjustments for language switcher */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .language-switcher {
-                top: 0.75rem;
-                right: 1.5rem;
+        /* Responzivnost */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: var(--budva-dark);
+                padding: 1rem;
+                border-radius: 10px;
+                margin-top: 1rem;
             }
-            .language-flag {
-                width: 25px;
-                height: 16px;
+            .social-links {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            .nav-link.active {
+                color: var(--budva-gold) !important;
+                background: rgba(255, 255, 255, 0.2);
             }
         }
 
         @media (max-width: 768px) {
+            .navbar-logo {
+                height: 30px;
+                border-radius: 8px;
+                animation: glowingShadow 2s infinite ease-in-out;
+            }
             .language-switcher {
                 top: 0.5rem;
                 right: 1rem;
             }
             .language-flag {
-                width: 20px;
-                height: 13px;
+                width: 25px;
+                height: 15px;
             }
         }
 
-        /* Hero stilovi (Desktop unchanged) */
+        /* Modernizirani Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--budva-dark), var(--budva-blue));
+            color: var(--budva-white);
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .footer-column {
+            padding: 1rem;
+        }
+
+        .footer-column h4 {
+            font-size: 1.3rem;
+            color: var(--budva-gold);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--budva-gold);
+        }
+
+        .footer-link {
+            display: flex;
+            align-items: center;
+            color: var(--budva-white);
+            text-decoration: none;
+            margin: 0.8rem 0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-link:hover {
+            color: var(--budva-gold);
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin: 0.8rem 0;
+            font-size: 1rem;
+        }
+
+        .footer-contact i {
+            margin-right: 0.5rem;
+            color: var(--budva-gold);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-credit {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(245, 246, 245, 0.7);
+            border-top: 1px solid rgba(245, 246, 245, 0.2);
+            padding-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-column h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-link, .footer-contact p {
+                justify-content: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        /* Sticky footer korekcije */
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+            background-color: var(--budva-white);
+        }
+
+        /* Hero stilovi */
         .hero-section {
             height: 70vh;
             display: flex;
@@ -220,7 +301,7 @@
             background: linear-gradient(rgba(0, 52, 74, 0.45), rgba(0, 52, 74, 0.45)), url('hero-slika.jpg');
             background-size: cover;
             background-position: center;
-            position: relative;
+            position: relative; /* Dodato za language switcher */
         }
 
         .hero-content h1 {
@@ -254,55 +335,7 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Tablet and Mobile adjustments for hero section */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .hero-section {
-                height: 60vh;
-            }
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content p {
-                font-size: 1.3rem;
-                margin-bottom: 1.5rem;
-            }
-            .hero-btn {
-                padding: 0.8rem 2rem;
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-section {
-                height: 50vh;
-            }
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .hero-content p {
-                font-size: 1.1rem;
-                margin-bottom: 1rem;
-            }
-            .hero-btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 1rem;
-            }
-        }
-
-        /* Sticky footer korekcije (Desktop unchanged) */
-        body {
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        main {
-            flex: 1;
-            background-color: var(--budva-white);
-        }
-
-        /* Apartmani sekcija (Desktop unchanged) */
+        /* Apartmani sekcija */
         .apartments-section {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -378,67 +411,12 @@
             color: var(--budva-dark);
         }
 
-        /* Tablet adjustments for apartments section */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .apartments-section {
-                padding: 3rem 1.5rem;
-            }
-            .apartments-section h2 {
-                font-size: 2.2rem;
-                margin-bottom: 2rem;
-            }
-            .apartments-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-            .apartment-card img {
-                height: 200px;
-            }
-            .apartment-card-content {
-                padding: 1rem;
-            }
-            .apartment-card-content h3 {
-                font-size: 1.3rem;
-            }
-            .apartment-card-content button {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Mobile adjustments for apartments section */
-        @media (max-width: 768px) {
-            .apartments-section {
-                padding: 2rem 1rem;
-            }
-            .apartments-section h2 {
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-            }
-            .apartments-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .apartment-card img {
-                height: 180px;
-            }
-            .apartment-card-content {
-                padding: 1rem;
-            }
-            .apartment-card-content h3 {
-                font-size: 1.2rem;
-            }
-            .apartment-card-content button {
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
-            }
-        }
-
-        /* Modal stilovi (Desktop unchanged) */
+        /* Modal stilovi */
         .modal-content {
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             background: var(--budva-white);
+            border: 3px solid var(--budva-light-blue);
         }
 
         .modal-header {
@@ -515,75 +493,7 @@
             color: var(--budva-white);
         }
 
-        /* Tablet adjustments for modal */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .modal-body {
-                padding: 1.5rem;
-            }
-            .modal-body .main-image {
-                height: 300px;
-            }
-            .modal-body .small-images {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.75rem;
-            }
-            .modal-body .small-images img {
-                height: 120px;
-            }
-            .modal-body p {
-                font-size: 1rem;
-            }
-            .modal-footer {
-                padding: 0.75rem 1rem;
-            }
-            .modal-footer .reserve-btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Mobile adjustments for modal */
-        @media (max-width: 768px) {
-            .modal-dialog {
-                margin: 0.5rem;
-                max-width: 95%;
-            }
-            .modal-content {
-                height: auto;
-            }
-            .modal-header {
-                padding: 0.75rem 1rem;
-            }
-            .modal-title {
-                font-size: 1.2rem;
-            }
-            .modal-body {
-                padding: 1rem;
-            }
-            .modal-body .main-image {
-                height: 200px;
-            }
-            .modal-body .small-images {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-            }
-            .modal-body .small-images img {
-                height: 100px;
-            }
-            .modal-body p {
-                font-size: 0.9rem;
-            }
-            .modal-footer {
-                padding: 0.5rem 1rem;
-            }
-            .modal-footer .reserve-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
-                width: 100%;
-            }
-        }
-
-        /* O nama sekcija (Desktop unchanged) */
+        /* O nama sekcija */
         .about-section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -618,34 +528,35 @@
             margin: 0 auto;
         }
 
-        /* Tablet and Mobile adjustments for about section */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .about-section {
-                padding: 3rem 1.5rem;
-            }
-            .about-section h2 {
-                font-size: 2rem;
-            }
-            .about-section p {
-                font-size: 1.1rem;
-            }
+        /* Text ticker */
+        .text-ticker {
+            background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
+            padding: 1rem;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            white-space: nowrap;
         }
 
-        @media (max-width: 768px) {
-            .about-section {
-                padding: 2rem 1rem;
-            }
-            .about-section h2 {
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-            }
-            .about-section p {
-                font-size: 1rem;
-                line-height: 1.6;
-            }
+        .text-ticker-content {
+            color: var(--budva-white);
+            font-size: 1.5rem;
+            font-family: Arial, sans-serif;
+            font-weight: 500;
+            display: inline-block;
+            animation: slide var(--animation-duration) linear infinite;
         }
 
-        /* Prednosti lokacije (Desktop unchanged) */
+        .text-ticker-content b {
+            color: var(--budva-gold);
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Prednosti lokacije */
         .location-advantages {
             max-width: 1200px;
             margin: 4rem auto;
@@ -687,35 +598,7 @@
             display: block;
         }
 
-        /* Tablet and Mobile adjustments for location advantages */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .location-advantages {
-                padding: 1.5rem;
-                margin: 3rem auto;
-            }
-            .location-advantages h2 {
-                font-size: 2rem;
-            }
-            .location-image {
-                max-height: 500px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .location-advantages {
-                padding: 1rem;
-                margin: 2rem auto;
-            }
-            .location-advantages h2 {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
-            }
-            .location-image {
-                max-height: 300px;
-            }
-        }
-
-        /* Komentari sa bookinga (Desktop unchanged) */
+        /* Komentari gostiju */
         .reviews-section {
             max-width: 1200px;
             margin: 4rem auto;
@@ -814,8 +697,8 @@
         .flag.ch { background: url('https://flagcdn.com/w20/ch.png') no-repeat; }
         .flag.rs { background: url('https://flagcdn.com/w20/rs.png') no-repeat; }
         .flag.hr { background: url('https://flagcdn.com/w20/hr.png') no-repeat; }
-        .flag.uk { background: url('https://flagcdn.com/w20/uk.png') no-repeat; }
         .flag.de { background: url('https://flagcdn.com/w20/de.png') no-repeat; }
+        .flag.uk { background: url('https://flagcdn.com/w20/gb.png') no-repeat; }
 
         .carousel-controls {
             position: absolute;
@@ -843,117 +726,7 @@
             background: var(--budva-blue);
         }
 
-        /* Tablet and Mobile adjustments for reviews section */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .reviews-section {
-                padding: 1.5rem;
-                margin: 3rem auto;
-            }
-            .reviews-section h2 {
-                font-size: 2rem;
-            }
-            .review-card {
-                padding: 1.5rem;
-            }
-            .review-card p {
-                font-size: 1rem;
-            }
-            .review-author img {
-                width: 35px;
-                height: 35px;
-            }
-            .review-author h4 {
-                font-size: 1.1rem;
-            }
-            .carousel-controls button {
-                font-size: 1.2rem;
-                padding: 0.4rem 0.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .reviews-section {
-                padding: 1rem;
-                margin: 2rem auto;
-            }
-            .reviews-section h2 {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
-            }
-            .reviews-carousel {
-                max-width: 100%;
-            }
-            .review-card {
-                padding: 1rem;
-            }
-            .review-card i.quote-icon {
-                font-size: 1.2rem;
-            }
-            .review-card p {
-                font-size: 0.9rem;
-                line-height: 1.5;
-            }
-            .review-author img {
-                width: 30px;
-                height: 30px;
-            }
-            .review-author h4 {
-                font-size: 1rem;
-            }
-            .carousel-controls button {
-                font-size: 1rem;
-                padding: 0.3rem 0.6rem;
-            }
-        }
-
-        /* Text ticker (Desktop unchanged) */
-        .text-ticker {
-            background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
-            padding: 1rem;
-            width: 100%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            white-space: nowrap;
-        }
-
-        .text-ticker-content {
-            color: var(--budva-white);
-            font-size: 1.5rem;
-            font-family: Arial, sans-serif;
-            font-weight: 500;
-            display: inline-block;
-            animation: slide var(--animation-duration) linear infinite;
-        }
-
-        .text-ticker-content b {
-            color: var(--budva-gold);
-        }
-
-        @keyframes slide {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* Tablet and Mobile adjustments for text ticker */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .text-ticker {
-                padding: 0.8rem;
-            }
-            .text-ticker-content {
-                font-size: 1.3rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .text-ticker {
-                padding: 0.6rem;
-            }
-            .text-ticker-content {
-                font-size: 1rem;
-            }
-        }
-
-        /* Linija (Desktop unchanged) */
+        /* Linija */
         .custom-line {
             border: none;
             height: 4px;
@@ -961,43 +734,83 @@
             margin: 2rem 0;
         }
 
-        /* Tablet and Mobile adjustments for line */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .custom-line {
-                margin: 1.5rem 0;
-            }
-        }
+        /* Logo */
+       /* Centriranje logo kontejnera */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 2rem 0; /* Razmak iznad i ispod */
+}
 
-        @media (max-width: 768px) {
-            .custom-line {
-                margin: 1rem 0;
-                height: 3px;
-            }
-        }
+/* Stilizovanje logo slike */
+.centered-logo {
+    width: 550px;
+    height: 600px;
+    object-fit: contain;
+    display: block; /* Osigurava da slika ne utiče na tok */
+}
 
-        /* Logo city (Desktop unchanged) */
-        .centered-logo {
-            width: 550px;
-            height: 600px;
-            object-fit: contain;
-        }
+/* Centriranje dugmeta */
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 2rem 0; /* Razmak iznad i ispod */
+}
 
-        /* Tablet and Mobile adjustments for logo */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .centered-logo {
-                width: 400px;
-                height: 450px;
-            }
-        }
+/* Postojeći stilovi za dugme (rezerve-btn) ostaju isti */
+.reserve-btn {
+    display: inline-block;
+    background: var(--budva-gold);
+    color: var(--budva-dark);
+    padding: 1rem 3rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
-        @media (max-width: 768px) {
-            .centered-logo {
-                width: 250px;
-                height: 300px;
-            }
-        }
+.reserve-btn:hover {
+    background: var(--budva-white);
+    color: var(--budva-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
 
-        /* Kontakt informacije (Desktop unchanged) */
+/* Responzivnost */
+@media (max-width: 768px) {
+    .centered-logo {
+        width: 300px;
+        height: 350px;
+    }
+
+    .reserve-btn {
+        padding: 0.8rem 2.5rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .centered-logo {
+        width: 200px;
+        height: 250px;
+    }
+
+    .reserve-btn {
+        padding: 0.7rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+        /* Kontakt informacije */
         .contact-content {
             max-width: 1200px;
             margin: 4rem auto;
@@ -1063,57 +876,7 @@
             font-weight: 500;
         }
 
-        /* Tablet and Mobile adjustments for contact info */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .contact-content {
-                padding: 1.5rem;
-                margin: 3rem auto;
-            }
-            .contact-info {
-                padding: 1.5rem;
-            }
-            .contact-info h2 {
-                font-size: 1.8rem;
-            }
-            .contact-info-item {
-                margin: 1rem 0;
-            }
-            .contact-info-item i {
-                font-size: 1.3rem;
-            }
-            .contact-info-item span {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .contact-content {
-                padding: 1rem;
-                margin: 2rem auto;
-            }
-            .contact-info {
-                padding: 1rem;
-            }
-            .contact-info h2 {
-                font-size: 1.6rem;
-                margin-bottom: 1.5rem;
-            }
-            .contact-info-item {
-                margin: 0.75rem 0;
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-info-item i {
-                font-size: 1.2rem;
-                margin-right: 0;
-                margin-bottom: 0.5rem;
-            }
-            .contact-info-item span {
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Dugme (Desktop unchanged) */
+        /* Dugme */
         .reserve-btn {
             display: inline-block;
             background: var(--budva-gold);
@@ -1136,26 +899,7 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Tablet and Mobile adjustments for button */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .reserve-btn {
-                padding: 0.8rem 2rem;
-                font-size: 1.1rem;
-                margin-top: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .reserve-btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 1rem;
-                width: 100%;
-                max-width: 250px;
-                margin-top: 1rem;
-            }
-        }
-
-        /* Mapa (Desktop unchanged) */
+        /* Mapa */
         .contact-map {
             width: 90%;
             max-width: 1200px;
@@ -1169,158 +913,313 @@
             border-radius: 20px;
         }
 
-        /* Tablet and Mobile adjustments for map */
+        /* Responzivnost */
         @media (max-width: 991px) and (min-width: 769px) {
-            .contact-map iframe {
-                height: 500px;
+            .apartments-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .apartment-card img {
+                height: 208px;
+            }
+
+            .modal-body .main-image {
+                height: 300px;
+            }
+
+            .modal-body .small-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-body .small-images img {
+                height: 120px;
             }
         }
 
         @media (max-width: 768px) {
-            .contact-map {
-                width: 95%;
+            .hero-section {
+                height: 50vh;
             }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+
+            .apartments-section {
+                padding: 3rem 1rem;
+            }
+
+            .apartments-section h2 {
+                font-size: 2rem;
+            }
+
+            .apartments-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .apartment-card img {
+                height: 182px;
+            }
+
+            .modal-dialog {
+                margin: 1rem;
+                max-width: calc(100% - 2rem);
+                height: 90vh;
+            }
+
+            .modal-content {
+                border-radius: 10px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .modal-header {
+                padding: 0.75rem 1rem;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+
+            .modal-body {
+                padding: 1rem;
+                max-height: none;
+                flex: 1;
+                overflow-y: auto;
+            }
+
+            .modal-body .main-image {
+                height: 250px;
+            }
+
+            .modal-body .small-images {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .modal-body .small-images img {
+                height: 100px;
+            }
+
+            .modal-body p {
+                font-size: 0.95rem;
+                margin: 0.75rem 0;
+            }
+
+            .modal-footer {
+                padding: 0.75rem 1rem;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .modal-footer .reserve-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .about-section {
+                padding: 3rem 1rem;
+            }
+
+            .about-section h2 {
+                font-size: 2rem;
+            }
+
+            .about-section p {
+                font-size: 1rem;
+            }
+
+            .text-ticker {
+                padding: 0.8rem;
+            }
+
+            .text-ticker-content {
+                font-size: 1.2rem;
+            }
+
+            .location-advantages {
+                padding: 1.5rem;
+            }
+
+            .location-advantages h2 {
+                font-size: 2rem;
+            }
+
+            .location-image {
+                max-height: 400px;
+            }
+
+            .reviews-section {
+                padding: 1rem;
+            }
+
+            .reviews-section h2 {
+                font-size: 2rem;
+            }
+
+            .review-card {
+                padding: 1.5rem;
+            }
+
+            .review-card p {
+                font-size: 1rem;
+            }
+
+            .review-author img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .review-author h4 {
+                font-size: 1.1rem;
+            }
+
+            .carousel-controls button {
+                font-size: 1.2rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .centered-logo {
+                width: 300px;
+                height: 350px;
+            }
+
+            .contact-content {
+                padding: 1rem;
+                margin: 2rem auto;
+            }
+
+            .contact-info {
+                padding: 1.5rem;
+            }
+
+            .contact-info h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-info-item {
+                margin: 1rem 0;
+            }
+
+            .contact-info-item i {
+                font-size: 1.3rem;
+                margin-right: 0.8rem;
+            }
+
+            .contact-info-item span {
+                font-size: 1rem;
+            }
+
+            .reserve-btn {
+                padding: 0.8rem 2.5rem;
+                font-size: 1.1rem;
+            }
+
+            .contact-map iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+
+            .hero-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .apartments-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .text-ticker {
+                padding: 0.6rem;
+            }
+
+            .text-ticker-content {
+                font-size: 1rem;
+            }
+
+            .location-advantages h2 {
+                font-size: 1.8rem;
+            }
+
+            .location-image {
+                max-height: 300px;
+            }
+
+            .reviews-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .review-card {
+                padding: 1rem;
+            }
+
+            .review-card p {
+                font-size: 0.95rem;
+            }
+
+            .review-author img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .review-author h4 {
+                font-size: 1rem;
+            }
+
+            .carousel-controls button {
+                font-size: 1rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .centered-logo {
+                width: 200px;
+                height: 250px;
+            }
+
+            .contact-info h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-info-item i {
+                font-size: 1.2rem;
+                width: 25px;
+            }
+
+            .contact-info-item span {
+                font-size: 0.95rem;
+            }
+
+            .reserve-btn {
+                padding: 0.7rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
             .contact-map iframe {
                 height: 300px;
             }
-        }
-
-        /* Footer stilovi (Desktop unchanged) */
-        .footer {
-            background: linear-gradient(135deg, var(--budva-dark), var(--budva-blue));
-            color: var(--budva-white);
-            padding: 3rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .footer-column {
-            padding: 1rem;
-        }
-
-        .footer-column h4 {
-            font-size: 1.3rem;
-            color: var(--budva-gold);
-            margin-bottom: 1rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-column h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--budva-gold);
-        }
-
-        .footer-link {
-            display: flex;
-            align-items: center;
-            color: var(--budva-white);
-            text-decoration: none;
-            margin: 0.8rem 0;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .footer-link i {
-            margin-right: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-link:hover {
-            color: var(--budva-gold);
-            transform: translateX(5px);
-        }
-
-        .footer-contact p {
-            display: flex;
-            align-items: center;
-            margin: 0.8rem 0;
-            font-size: 1rem;
-        }
-
-        .footer-contact i {
-            margin-right: 0.5rem;
-            color: var(--budva-gold);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .footer-credit {
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: rgba(245, 246, 245, 0.7);
-            border-top: 1px solid rgba(245, 246, 245, 0.2);
-            padding-top: 1rem;
-        }
-
-        /* Tablet and Mobile adjustments for footer */
-        @media (max-width: 991px) and (min-width: 769px) {
-            .footer {
-                padding: 2rem 1.5rem;
-            }
-            .footer-container {
-                gap: 1.5rem;
-            }
-            .footer-column h4 {
-                font-size: 1.2rem;
-            }
-            .footer-link, .footer-contact p {
-                font-size: 0.95rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                padding: 1.5rem 1rem;
-            }
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                text-align: center;
-            }
-            .footer-column h4 {
-                font-size: 1.1rem;
-            }
-            .footer-column h4::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            .footer-link, .footer-contact p {
-                font-size: 0.9rem;
-                justify-content: center;
-            }
-            .footer-social {
-                justify-content: center;
-            }
-            .footer-credit {
-                font-size: 0.8rem;
-                margin-top: 1rem;
-            }
-        }
-
-        /* Centering wrapper */
-        .center-wrapper {
-            text-align: center;
-            margin: 0;
         }
     </style>
 </head>
@@ -1370,13 +1269,15 @@
             <div class="language-switcher">
                 <img src="srpski.png" alt="Srpski" class="language-flag active" data-lang="sr">
                 <img src="engleski.png" alt="English" class="language-flag" data-lang="en">
-                <img src="ru-flag.png" alt="Русский" class="language-flag" data-lang="ru">
+                <img src="ruski.jpg" alt="Русский" class="language-flag" data-lang="ru">
             </div>
             <div class="hero-content">
                 <h1 data-sr="City Apartments" data-en="City Apartments" data-ru="City Apartments">City Apartments</h1>
-                <p data-sr="Uživajte u luksuznom smještaju u srcu <b>Budve</b>, uz vrhunsku uslugu i nezaboravan odmor." 
-                   data-en="Enjoy luxurious accommodation in the heart of <b>Budva</b>, with top-notch service and an unforgettable vacation." 
-                   data-ru="Наслаждайтесь роскошным проживанием в самом сердце <b>Будвы</b> с первоклассным обслуживанием и незабываемым отдыхом.">Uživajte u luksuznom smještaju u srcu <b>Budve</b>, uz vrhunsku uslugu i nezaboravan odmor.</p>
+                <p data-sr="Uživajte u luksuznom smještaju u srcu <b>Budve</b>, uz vrhunsku uslugu i nezaboravan odmor."
+                   data-en="Enjoy luxurious accommodation in the heart of <b>Budva</b>, with top-notch service and an unforgettable vacation."
+                   data-ru="Наслаждайтесь роскошным проживанием в самом сердце <b>Будвы</b> с первоклассным обслуживанием и незабываемым отдыхом.">
+                    Uživajte u luksuznom smještaju u srcu <b>Budve</b>, uz vrhunsku uslugu i nezaboravan odmor.
+                </p>
                 <a href="kontakti.html" class="hero-btn" data-sr="Rezervišite sada" data-en="Book Now" data-ru="Забронировать сейчас">Rezervišite sada</a>
             </div>
         </section>
@@ -1406,9 +1307,9 @@
                     </div>
                 </div>
                 <div class="apartment-card">
-                    <img src="deJoves1.jpg" alt="Joves Apartman">
+                    <img src="deJoves1.jpg" alt="WoW Apartman">
                     <div class="apartment-card-content">
-                        <h3 data-sr="WoW" data-en="WoW" data-ru="Вау">WoW</h3>
+                        <h3 data-sr="WoW Apartman" data-en="WoW Apartment" data-ru="Вау Апартаменты">WoW Apartman</h3>
                         <button data-bs-toggle="modal" data-bs-target="#apartman4Modal" data-sr="Saznaj više" data-en="Learn More" data-ru="Узнать больше">Saznaj više</button>
                     </div>
                 </div>
@@ -1429,9 +1330,11 @@
                                 <img src="delux4.jpg" alt="Detalj 2">
                                 <img src="delux5.jpg" alt="Detalj 3">
                             </div>
-                            <p data-sr="3 spavaće sobe, 3 kupatila, pomoćni toalet, površine 240 m2… Potpuno opremljena kuhinja, 5. sprat… Mikrotalasna, tost za hleb, 2 frižidera, vešeraj!!" 
-                               data-en="3 bedrooms, 3 bathrooms, additional toilet, 240 m²… Fully equipped kitchen, 5th floor… Microwave, toaster, 2 refrigerators, laundry room!!" 
-                               data-ru="3 спальни, 3 ванные комнаты, дополнительный туалет, площадь 240 м²… Полностью оборудованная кухня, 5-й этаж… Микроволновка, тостер, 2 холодильника, прачечная!!">3 spavaće sobe, 3 kupatila, pomoćni toalet, površine 240 m2… Potpuno opremljena kuhinja, 5. sprat… Mikrotalasna, tost za hleb, 2 frižidera, vešeraj!!</p>
+                            <p data-sr="3 spavaće sobe, 3 kupatila, pomoćni toalet, površine 240 m2… Potpuno opremljena kuhinja, 5. sprat… Mikrotalasna, tost za hleb, 2 frižidera, vešeraj!!"
+                               data-en="3 bedrooms, 3 bathrooms, additional toilet, 240 m²… Fully equipped kitchen, 5th floor… Microwave, toaster, 2 refrigerators, laundry room!!"
+                               data-ru="3 спальни, 3 ванные комнаты, дополнительный туалет, площадь 240 м²… Полностью оборудованная кухня, 5-й этаж… Микроволновка, тостер, 2 холодильника, прачечная!!">
+                                3 spavaće sobe, 3 kupatila, pomoćni toalet, površine 240 m2… Potpuno opremljena kuhinja, 5. sprat… Mikrotalasna, tost za hleb, 2 frižidera, vešeraj!!
+                            </p>
                         </div>
                         <div class="modal-footer">
                             <a href="kontakti.html" class="reserve-btn" data-sr="Rezerviši" data-en="Reserve" data-ru="Забронировать">Rezerviši</a>
@@ -1454,9 +1357,11 @@
                                 <img src="novo-ap4.jpg" alt="Detalj 2">
                                 <img src="novo-ap3.jpg" alt="Detalj 3">
                             </div>
-                            <p data-sr="100 kvadrata - dvosoban Stan - Kupatilo - dodatno WC - Balkon 3 kvadrata, kuhinja full opremljena, peti sprat, parcijalan pogled na more." 
-                               data-en="100 square meters - two-bedroom apartment - Bathroom - additional WC - 3 square meter balcony, fully equipped kitchen, fifth floor, partial sea view." 
-                               data-ru="100 квадратных метров - двухкомнатная квартира - Ванная - дополнительный туалет - Балкон 3 квадратных метра, полностью оборудованная кухня, пятый этаж, частичный вид на море.">100 kvadrata - dvosoban Stan - Kupatilo - dodatno WC - Balkon 3 kvadrata, kuhinja full opremljena, peti sprat, parcijalan pogled na more.</p>
+                            <p data-sr="100 kvadrata - dvosoban Stan - Kupatilo - dodatno WC - Balkon 3 kvadrata, kuhinja full opremljena, peti sprat, parcijalan pogled na more."
+                               data-en="100 square meters - two-bedroom apartment - Bathroom - additional WC - 3 square meter balcony, fully equipped kitchen, fifth floor, partial sea view."
+                               data-ru="100 квадратных метров - двухкомнатная квартира - Ванная - дополнительный туалет - Балкон 3 квадратных метра, полностью оборудованная кухня, пятый этаж, частичный вид на море.">
+                                100 kvadrata - dvosoban Stan - Kupatilo - dodatno WC - Balkon 3 kvadrata, kuhinja full opremljena, peti sprat, parcijalan pogled na more.
+                            </p>
                         </div>
                         <div class="modal-footer">
                             <a href="kontakti.html" class="reserve-btn" data-sr="Rezerviši" data-en="Reserve" data-ru="Забронировать">Rezerviši</a>
@@ -1479,9 +1384,11 @@
                                 <img src="novo-ap2.jpg" alt="Detalj 2">
                                 <img src="delux4a.jpg" alt="Detalj 3">
                             </div>
-                            <p data-sr="120 kvadrata, dvosoban. Kupatilo, dodatno wc, kuhinja full opremljena. Balkon ka prednjoj strani, balkon u sobama." 
-                               data-en="120 square meters, two-bedroom. Bathroom, additional WC, fully equipped kitchen. Balcony facing the front, balcony in the rooms." 
-                               data-ru="120 квадратных метров, двухкомнатная. Ванная, дополнительный туалет, полностью оборудованная кухня. Балкон с видом на переднюю сторону, балкон в комнатах.">120 kvadrata, dvosoban. Kupatilo, dodatno wc, kuhinja full opremljena. Balkon ka prednjoj strani, balkon u sobama.</p>
+                            <p data-sr="120 kvadrata, dvosoban. Kupatilo, dodatno wc, kuhinja full opremljena. Balkon ka prednjoj strani, balkon u sobama."
+                               data-en="120 square meters, two-bedroom. Bathroom, additional WC, fully equipped kitchen. Balcony facing the front, balcony in the rooms."
+                               data-ru="120 квадратных метров, двухкомнатная. Ванная, дополнительный туалет, полностью оборудованная кухня. Балкон с видом на переднюю сторону, балкон в комнатах.">
+                                120 kvadrata, dvosoban. Kupatilo, dodatno wc, kuhinja full opremljena. Balkon ka prednjoj strani, balkon u sobama.
+                            </p>
                         </div>
                         <div class="modal-footer">
                             <a href="kontakti.html" class="reserve-btn" data-sr="Rezerviši" data-en="Reserve" data-ru="Забронировать">Rezerviši</a>
@@ -1494,19 +1401,21 @@
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="apartman4ModalLabel" data-sr="WoW" data-en="WoW" data-ru="Вау">WoW</h5>
+                            <h5 class="modal-title" id="apartman4ModalLabel" data-sr="WoW Apartman" data-en="WoW Apartment" data-ru="Вау Апартаменты">WoW Apartman</h5>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="jovs13.jpg" class="main-image" alt="Joves Apartman">
+                            <img src="jovs13.jpg" class="main-image" alt="WoW Apartman">
                             <div class="small-images">
                                 <img src="joves13a.jpg" alt="Detalj 1">
                                 <img src="joves-krevet.jpg" alt="Detalj 2">
                                 <img src="joves-zgrada.jpg" alt="Detalj 3">
                             </div>
-                            <p data-sr="130 kvadrata, trosoban. Kupatilo, dodatni WC, potpuno opremljena kuhinja, prostrani balkon sa pogledom na okolinu." 
-                               data-en="130 square meters, three-bedroom. Bathroom, additional WC, fully equipped kitchen, spacious balcony with a view of the surroundings." 
-                               data-ru="130 квадратных метров, трехкомнатная. Ванная, дополнительный туалет, полностью оборудованная кухня, просторный балкон с видом на окрестности.">130 kvadrata, trosoban. Kupatilo, dodatni WC, potpuno opremljena kuhinja, prostrani balkon sa pogledom na okolinu.</p>
+                            <p data-sr="Delux apartman sa pogledom na panoramu Budve!"
+                               data-en="Deluxe apartment with a panoramic view of Budva!"
+                               data-ru="Делюкс апартаменты с панорамным видом на Будву!">
+                                Delux apartman sa pogledom na panoramu Budve!
+                            </p>
                         </div>
                         <div class="modal-footer">
                             <a href="kontakti.html" class="reserve-btn" data-sr="Rezerviši" data-en="Reserve" data-ru="Забронировать">Rezerviši</a>
@@ -1518,18 +1427,24 @@
 
         <section class="about-section">
             <h2 data-sr="O nama" data-en="About Us" data-ru="О нас">O nama</h2>
-            <p data-sr="<b>City Apartments</b> je porodični biznis s dugogodišnjom tradicijom, prepoznat kao lider u pružanju vrhunskog apartmanskog smještaja na crnogorskom primorju, sa sjedištem u <b>Budvi</b>. Naša misija je da svakom gostu pružimo nezaboravno iskustvo, kombinujući udobnost, luksuz i domaću atmosferu." 
-               data-en="<b>City Apartments</b> is a family business with a long-standing tradition, recognized as a leader in providing top-quality apartment accommodation on the Montenegrin coast, based in <b>Budva</b>. Our mission is to offer every guest an unforgettable experience, combining comfort, luxury, and a homely atmosphere." 
-               data-ru="<b>City Apartments</b> - это семейный бизнес с многолетней традицией, признанный лидером в предоставлении высококачественного апартаментного жилья на черногорском побережье, с базой в <b>Будве</b>. Наша миссия - подарить каждому гостю незабываемый опыт, сочетая комфорт, роскошь и домашнюю атмосферу."><b>City Apartments</b> je porodični biznis s dugogodišnjom tradicijom, prepoznat kao lider u pružanju vrhunskog apartmanskog smještaja na crnogorskom primorju, sa sjedištem u <b>Budvi</b>. Naša misija je da svakom gostu pružimo nezaboravno iskustvo, kombinujući udobnost, luksuz i domaću atmosferu.</p>
-            <p data-sr="Nalazimo se na idealnoj lokaciji u centru grada, blizu plaža, restorana i glavnih atrakcija u srcu <b>Budve</b>. Naši apartmani su moderno opremljeni i pažljivo dizajnirani kako bi zadovoljili i najprefinjenije ukuse, pružajući luksuz i udobnost koji premašuju očekivanja i najzahtjevnijih gostiju!" 
-               data-en="We are located in an ideal spot in the city center, close to beaches, restaurants, and main attractions in the heart of <b>Budva</b>. Our apartments are modernly equipped and carefully designed to satisfy even the most refined tastes, offering luxury and comfort that exceed the expectations of even the most demanding guests!" 
-               data-ru="Мы находимся в идеальном месте в центре города, рядом с пляжами, ресторанами и главными достопримечательностями в самом сердце <b>Будвы</b>. Наши апартаменты современно оборудованы и тщательно спроектированы, чтобы удовлетворить даже самые изысканные вкусы, предлагая роскошь и комфорт, превосходящие ожидания даже самых требовательных гостей!">Nalazimo se na idealnoj lokaciji u centru grada, blizu plaža, restorana i glavnih atrakcija u srcu <b>Budve</b>. Naši apartmani su moderno opremljeni i pažljivo dizajnirani kako bi zadovoljili i najprefinjenije ukuse, pružajući luksuz i udobnost koji premašuju očekivanja i najzahtjevnijih gostiju!</p>
+            <p data-sr="<b>City Apartments</b> je porodični biznis s dugogodišnjom tradicijom, prepoznat kao lider u pružanju vrhunskog apartmanskog smještaja na crnogorskom primorju, sa sjedištem u <b>Budvi</b>. Naša misija je da svakom gostu pružimo nezaboravno iskustvo, kombinujući udobnost, luksuz i domaću atmosferu."
+               data-en="<b>City Apartments</b> is a family business with a long-standing tradition, recognized as a leader in providing top-quality apartment accommodation on the Montenegrin coast, based in <b>Budva</b>. Our mission is to offer every guest an unforgettable experience, combining comfort, luxury, and a homely atmosphere."
+               data-ru="<b>City Apartments</b> - это семейный бизнес с многолетней традицией, признанный лидером в предоставлении высококачественного апартаментного жилья на черногорском побережье, с базой в <b>Будве</b>. Наша миссия - подарить каждому гостю незабываемый опыт, сочетая комфорт, роскошь и домашнюю атмосферу.">
+                <b>City Apartments</b> je porodični biznis s dugogodišnjom tradicijom, prepoznat kao lider u pružanju vrhunskog apartmanskog smještaja na crnogorskom primorju, sa sjedištem u <b>Budvi</b>. Naša misija je da svakom gostu pružimo nezaboravno iskustvo, kombinujući udobnost, luksuz i domaću atmosferu.
+            </p>
+            <p data-sr="Nalazimo se na idealnoj lokaciji u centru grada, blizu plaža, restorana i glavnih atrakcija u srcu <b>Budve</b>. Naši apartmani su moderno opremljeni i pažljivo dizajnirani kako bi zadovoljili i najprefinjenije ukuse, pružajući luksuz i udobnost koji premašuju očekivanja i najzahtjevnijih gostiju!"
+               data-en="We are located in an ideal spot in the city center, close to beaches, restaurants, and main attractions in the heart of <b>Budva</b>. Our apartments are modernly equipped and carefully designed to satisfy even the most refined tastes, offering luxury and comfort that exceed the expectations of even the most demanding guests!"
+               data-ru="Мы находимся в идеальном месте в центре города, рядом с пляжами, ресторанами и главными достопримечательностями в самом сердце <b>Будвы</b>. Наши апартаменты современно оборудованы и тщательно спроектированы, чтобы удовлетворить даже самые изысканные вкусы, предлагая роскошь и комфорт, превосходящие ожидания даже самых требовательных гостей!">
+                Nalazimo se na idealnoj lokaciji u centru grada, blizu plaža, restorana i glavnih atrakcija u srcu <b>Budve</b>. Naši apartmani su moderno opremljeni i pažljivo dizajnirani kako bi zadovoljili i najprefinjenije ukuse, pružajući luksuz i udobnost koji premašuju očekivanja i najzahtjevnijih gostiju!
+            </p>
         </section>
 
         <div class="text-ticker">
-            <div class="text-ticker-content" data-sr="Usluge tokom boravka u - <b>CITY APARTMENTS</b> - transferi od/do aerodroma, rentiranje automobila, motocikala i bicikala, kao i organizovanje izleta i krstarenja(pecanje, ronjenje) na svim ekskluzivnim lokalitetima u <b>Crnoj Gori</b>." 
-                 data-en="Services during your stay at - <b>CITY APARTMENTS</b> - airport transfers, car, motorcycle, and bicycle rentals, as well as organizing excursions and cruises (fishing, diving) to all exclusive locations in <b>Montenegro</b>." 
-                 data-ru="Услуги во время пребывания в - <b>CITY APARTMENTS</b> - трансферы из/в аэропорт, аренда автомобилей, мотоциклов и велосипедов, а также организация экскурсий и круизов (рыбалка, дайвинг) по всем эксклюзивным местам в <b>Черногории</b>.">Usluge tokom boravka u - <b>CITY APARTMENTS</b> - transferi od/do aerodroma, rentiranje automobila, motocikala i bicikala, kao i organizovanje izleta i krstarenja(pecanje, ronjenje) na svim ekskluzivnim lokalitetima u <b>Crnoj Gori</b>.</div>
+            <div class="text-ticker-content" data-sr="Usluge tokom boravka u - <b>CITY APARTMENTS</b> - transferi od/do aerodroma, rentiranje automobila, motocikala i bicikala, kao i organizovanje izleta i krstarenja(pecanje, ronjenje) na svim ekskluzivnim lokalitetima u <b>Crnoj Gori</b>."
+                data-en="Services during your stay at - <b>CITY APARTMENTS</b> - airport transfers, car, motorcycle, and bicycle rentals, as well as organizing excursions and cruises (fishing, diving) to all exclusive locations in <b>Montenegro</b>."
+                data-ru="Услуги во время пребывания в - <b>CITY APARTMENTS</b> - трансферы из/в аэропорт, аренда автомобилей, мотоциклов и велосипедов, а также организация экскурсий и круизов (рыбалка, дайвинг) по всем эксклюзивным местам в <b>Черногории</b>.">
+                Usluge tokom boravka u - <b>CITY APARTMENTS</b> - transferi od/do aerodroma, rentiranje automobila, motocikala i bicikala, kao i organizovanje izleta i krstarenja(pecanje, ronjenje) na svim ekskluzivnim lokalitetima u <b>Crnoj Gori</b>.
+            </div>
         </div>
 
         <div class="location-advantages">
@@ -1545,9 +1460,11 @@
                 <div class="reviews-track">
                     <div class="review-card">
                         <i class="fas fa-quote-left quote-icon"></i>
-                        <p data-sr="“Dobra lokacija blizu starog grada Budve i veoma dobri restorani u blizini na pješačkoj udaljenosti. Predivan pogled na ulicu s terase. Vladimir je veoma ljubazan i uslužan.”" 
-                           data-en="“Good location near old town Budva and very good restaurants nearby in walking distance. Beautiful street view from terrace. Wladimir is a very helpful person.”" 
-                           data-ru="“Хорошее расположение недалеко от старого города Будвы и очень хорошие рестораны поблизости в шаговой доступности. Прекрасный вид на улицу с террасы. Владимир - очень отзывчивый и полезный человек.”">“Dobra lokacija blizu starog grada Budve i veoma dobri restorani u blizini na pješačkoj udaljenosti. Predivan pogled na ulicu s terase. Vladimir je veoma ljubazan i uslužan.”</p>
+                        <p data-sr="“Dobra lokacija blizu starog grada Budve i veoma dobri restorani u blizini na pješačkoj udaljenosti. Predivan pogled na ulicu s terase. Vladimir je veoma ljubazan i uslužan.”"
+                           data-en="“Good location near old town Budva and very good restaurants nearby in walking distance. Beautiful street view from terrace. Wladimir is a very helpful person.”"
+                           data-ru="“Хорошее расположение недалеко от старого города Будвы и очень хорошие рестораны поблизости в шаговой доступности. Прекрасный вид на улицу с террасы. Владимир - очень отзывчивый и полезный человек.”">
+                            “Dobra lokacija blizu starog grada Budve i veoma dobri restorani u blizini na pješačkoj udaljenosti. Predivan pogled na ulicu s terase. Vladimir je veoma ljubazan i uslužan.”
+                        </p>
                         <div class="review-author">
                             <img src="komentar-slika1.png" alt="Jaison">
                             <span class="flag ch"></span>
@@ -1556,13 +1473,67 @@
                     </div>
                     <div class="review-card">
                         <i class="fas fa-quote-left quote-icon"></i>
-                        <p data-sr="Najbolji odmor do sada! Pogled na more iz apartmana je predivan, a plaža je na samo nekoliko koraka. prvi put smo u budvi i bez reci sam , zak i muz :) ... Porodični odmor za pamćenje" 
-                           data-en="The best vacation so far! The sea view from the apartment is wonderful, and the beach is just a few steps away. First time in Budva and I'm speechless, Zak and my husband too :) ... A family vacation to remember!" 
-                           data-ru="Лучший отдых на данный момент! Вид на море из апартаментов великолепен, а пляж всего в нескольких шагах. Впервые в Будве, и я потеряла дар речи, Зак и мой муж тоже :) ... Семейный отдых, который запомнится надолго!">Najbolji odmor do sada! Pogled na more iz apartmana je predivan, a plaža je na samo nekoliko koraka. prvi put smo u budvi i bez reci sam , zak i muz :) ... Porodični odmor za pamćenje</p>
+                        <p data-sr="Najbolji odmor do sada! Pogled na more iz apartmana je predivan, a plaža je na samo nekoliko koraka. prvi put smo u budvi i bez reci sam , zak i muz :) ... Porodični odmor za pamćenje"
+                           data-en="The best vacation so far! The sea view from the apartment is wonderful, and the beach is just a few steps away. First time in Budva and I'm speechless, Zak and my husband too :) ... A family vacation to remember!"
+                           data-ru="Лучший отдых на данный момент! Вид на море из апартаментов великолепен, а пляж всего в нескольких шагах. Впервые в Будве, и я потеряла дар речи, Зак и мой муж тоже :) ... Семейный отдых, который запомнится надолго!">
+                            Najbolji odmor do sada! Pogled na more iz apartmana je predivan, a plaža je na samo nekoliko koraka. prvi put smo u budvi i bez reci sam , zak i muz :) ... Porodični odmor za pamćenje
+                        </p>
                         <div class="review-author">
                             <img src="komentar-slikaSR.png" alt="Jelena P.">
                             <span class="flag rs"></span>
                             <h4 data-sr="Jelena P. - Novi Sad" data-en="Jelena P. - Novi Sad" data-ru="Елена П. - Нови Сад">Jelena P. - Novi Sad</h4>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p data-sr="City Apartments u Budvi su savršeno mjesto za smistiti se! Apartmani su moderni, prostrani i pažljivo opremljeni kako bi pružili maksimalan komfor. Lokacija je idealna, a usluga je na visokom nivou. Savršeno za opuštanje i uživanje na crnogorskom primorju!"
+                           data-en="City Apartments in Budva are the perfect place to stay! The apartments are modern, spacious, and carefully equipped to provide maximum comfort. The location is ideal, and the service is top-notch. Perfect for relaxation and enjoyment on the Montenegrin coast!"
+                           data-ru="City Apartments в Будве - идеальное место для проживания! Апартаменты современные, просторные и тщательно оборудованы для максимального комфорта. Расположение идеальное, а обслуживание на высшем уровне. Идеально для отдыха и наслаждения на черногорском побережье!">
+                            City Apartments u Budvi su savršeno mjesto za smistiti se! Apartmani su moderni, prostrani i pažljivo opremljeni kako bi pružili maksimalan komfor. Lokacija je idealna, a usluga je na visokom nivou. Savršeno za opuštanje i uživanje na crnogorskom primorju!
+                        </p>
+                        <div class="review-author">
+                            <img src="komentar-na.png" alt="Ana K.">
+                            <span class="flag hr"></span>
+                            <h4 data-sr="Ana K. - Zagreb" data-en="Ana K. - Zagreb" data-ru="Ана К. - Загреб">Ana K. - Zagreb</h4>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p data-sr="City Apartments u Budvi nude savršenu kombinaciju luksuza, udobnosti i nenadmašne lokacije. Moderno opremljeni apartmani nadmašuju sva očekivanja i pružaju nezaboravan boravak. Prijateljsko osoblje i pažnja posvećena detaljima čine svaki trenutak posebnim. Toplo preporučujem svima koji traže najbolje za svoj odmor!"
+                           data-en="City Apartments in Budva offer a perfect blend of luxury, comfort, and an unbeatable location. The modernly equipped apartments exceed all expectations and ensure an unforgettable stay. The friendly staff and attention to detail make every moment special. Highly recommended for anyone seeking the best for their vacation!"
+                           data-ru="City Apartments в Будве предлагают идеальное сочетание роскоши, комфорта и непревзойденного расположения. Современно оборудованные апартаменты превосходят все ожидания и обеспечивают незабываемое пребывание. Дружелюбный персонал и внимание к деталям делают каждый момент особенным. Настоятельно рекомендую всем, кто ищет лучшее для своего отдыха!">
+                            City Apartments u Budvi nude savršenu kombinaciju luksuza, udobnosti i nenadmašne lokacije. Moderno opremljeni apartmani nadmašuju sva očekivanja i pružaju nezaboravan boravak. Prijateljsko osoblje i pažnja posvećena detaljima čine svaki trenutak posebnim. Toplo preporučujem svima koji traže najbolje za svoj odmor!
+                        </p>
+                        <div class="review-author">
+                            <img src="komentar-slikaDE.png" alt="Stefan M.">
+                            <span class="flag de"></span>
+                            <h4 data-sr="Stefan M. - München" data-en="Stefan M. - Munich" data-ru="Стефан М. - Мюнхен">Stefan M. - München</h4>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p data-sr="Idealan izbor za porodični odmor iz snova! Prostrani i moderni apartmani pružaju sve što je potrebno za komforan boravak, dok toplina i pažnja domaćina stvaraju atmosferu kao kod kuće. Blizina plaža, restorana i atrakcija omogućava savršene porodične trenutke ispunjene zabavom i zajedničkim avanturama. Ovo je mjesto gdje porodice stvaraju uspomene koje će trajati cijeli život!"
+                           data-en="An ideal choice for a dream family vacation! Spacious and modern apartments provide everything needed for a comfortable stay, while the warmth and attention of the hosts create a home-like atmosphere. Proximity to beaches, restaurants, and attractions allows for perfect family moments filled with fun and shared adventures. This is a place where families create memories that will last a lifetime!"
+                           data-ru="Идеальный выбор для семейного отдыха мечты! Просторные и современные апартаменты предоставляют все необходимое для комфортного пребывания, а тепло и внимание хозяев создают атмосферу как дома. Близость к пляжам, ресторанам и достопримечательностям позволяет проводить идеальные семейные моменты, полные веселья и совместных приключений. Это место, где семьи создают воспоминания, которые останутся на всю жизнь!">
+                            Idealan izbor za porodični odmor iz snova! Prostrani i moderni apartmani pružaju sve što je potrebno za komforan boravak, dok toplina i pažnja domaćina stvaraju atmosferu kao kod kuće. Blizina plaža, restorana i atrakcija omogućava savršene porodične trenutke ispunjene zabavom i zajedničkim avanturama. Ovo je mjesto gdje porodice stvaraju uspomene koje će trajati cijeli život!
+                        </p>
+                        <div class="review-author">
+                            <img src="komentar-slikaSRm.png" alt="Marko T.">
+                            <span class="flag rs"></span>
+                            <h4 data-sr="Marko T. - Beograd" data-en="Marko T. - Belgrade" data-ru="Марко Т. - Белград">Marko T. - Beograd</h4>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p data-sr="“Krevet je bio udoban, balkon je imao odličan pogled i bio je blizu centra, plaže i restorana/barova/trgovina. Osoblje je bilo veoma prijateljsko i uslužno, ostajući u kontaktu kako bi nam pomoglo kada nam je let...”"
+                           data-en="“The bed was comfy, the balcony had great views and was close to the centre, beach and restaurants/bars/shopping. The staff were very friendly and helpful, keeping in touch so that when our flight...”"
+                           data-ru="“Кровать была удобной, с балкона открывался отличный вид, и он находился недалеко от центра, пляжа и ресторанов/баров/магазинов. Персонал был очень дружелюбным и полезным, оставаясь на связи, чтобы помочь нам, когда наш рейс...”">
+                            “Krevet je bio udoban, balkon je imao odličan pogled i bio je blizu centra, plaže i restorana/barova/trgovina. Osoblje je bilo veoma prijateljsko i uslužno, ostajući u kontaktu kako bi nam pomoglo kada nam je let...”
+                        </p>
+                        <div class="review-author">
+                            <img src="komenrar-slikoG.png" alt="Deborah">
+                            <span class="flag uk"></span>
+                            <h4 data-sr="Deborah - Velika Britanija" data-en="Deborah - United Kingdom" data-ru="Дебора - Великобритания">Deborah - Velika Britanija</h4>
                         </div>
                     </div>
                 </div>
@@ -1575,9 +1546,9 @@
 
         <hr class="custom-line">
 
-        <div class="center-wrapper">
-            <img src="logo-City.png" alt="City Apartments Logo" class="centered-logo">
-        </div>
+       <div class="logo-container">
+    <img src="logo-City.png" alt="City Apartments Logo" class="centered-logo">
+</div>
 
         <div class="contact-content">
             <div class="contact-info">
@@ -1592,20 +1563,22 @@
                 </div>
                 <div class="contact-info-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span data-sr="Ul. Mediteranska 55, 85310 Budva, Crna Gora" 
-                          data-en="Mediteranska St. 55, 85310 Budva, Montenegro" 
-                          data-ru="ул. Медитеранская 55, 85310 Будва, Черногория">Ul. Mediteranska 55, 85310 Budva, Crna Gora</span>
+                    <span data-sr="Ul. Mediteranska 55, 85310 Budva, Crna Gora"
+                          data-en="Mediteranska St. 55, 85310 Budva, Montenegro"
+                          data-ru="ул. Медитеранская 55, 85310 Будва, Черногория">
+                        Ul. Mediteranska 55, 85310 Budva, Crna Gora
+                    </span>
                 </div>
             </div>
         </div>
 
-        <div class="center-wrapper">
-            <a href="kontakti.html" class="reserve-btn" data-sr="Rezerviši odmah" data-en="Reserve Now" data-ru="Забронировать сейчас">Rezerviši odmah</a>
-        </div>
-        <div style="margin-bottom: 30px;"></div>
+         <div class="center-wrapper">
+        <a href="kontakti.html" class="reserve-btn" data-sr="Rezerviši odmah" data-en="Reserve Now" data-ru="Забронировать сейчас">Rezerviši odmah</a>
+    </div>
 
         <div class="contact-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2951.7112471586065!2d18.83589647659979!3d42.284686839859376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134dd49afbd80185%3A0xe4f342da8593a176!2sCity%20Apartments!5e0!3m2!1sen!2s!4v1742271793364!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2951.7112471586065!2d18.83589647659979!3d42.284686839859376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134dd49afbd80185%3A0xe4f342da8593a176!2sCity%20Apartments!5e0!3m2!1sen!2s!4v1742271793364!5m2!1sen!2s" 
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </main>
 
@@ -1643,105 +1616,115 @@
         </div>
         <div class="footer-credit" data-sr="© 2025 cryptogorac.com | Sva prava zadržana." 
              data-en="© 2025 cryptogorac.com | All rights reserved." 
-             data-ru="© 2025 cryptogorac.com | Все права защищены.">© 2025 cryptogorac.com | Sva prava zadržana.</div>
+             data-ru="© 2025 cryptogorac.com | Все права защищены.">
+            © 2025 cryptogorac.com | Sva prava zadržana.
+        </div>
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const navbar = document.querySelector('.navbar');
-            const languageFlags = document.querySelectorAll('.language-flag');
-            const elements = document.querySelectorAll('[data-sr][data-en][data-ru]');
-            const track = document.querySelector('.reviews-track');
-            const cards = document.querySelectorAll('.review-card');
-            const totalCards = cards.length;
-            let currentIndex = 0;
-            let slideInterval;
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navbar = document.querySelector('.navbar');
+        const languageFlags = document.querySelectorAll('.language-flag');
+        const elements = document.querySelectorAll('[data-sr][data-en][data-ru]');
+        const track = document.querySelector('.reviews-track');
+        const totalCards = track ? track.children.length : 0;
+        let currentIndex = 0;
+        let slideInterval;
 
-            // Navbar active link handling
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
+        // Navbar active link handling
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.padding = '1rem 2rem';
+                navbar.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                navbar.style.padding = '1.5rem 2rem';
+                navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+            }
+        });
+
+        // Language switcher
+        function updateLanguage(lang) {
+            elements.forEach(element => {
+                let text = '';
+                if (lang === 'en') {
+                    text = element.getAttribute('data-en');
+                } else if (lang === 'ru') {
+                    text = element.getAttribute('data-ru');
+                } else {
+                    text = element.getAttribute('data-sr');
+                }
+                element.innerHTML = text;
             });
 
-            // Navbar scroll effect
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.style.padding = '1rem 2rem';
-                    navbar.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.3)';
-                } else {
-                    navbar.style.padding = '1.5rem 2rem';
-                    navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+            document.documentElement.lang = lang; // Update HTML lang attribute
+            document.title = lang === 'en' ? document.querySelector('title').getAttribute('data-en') :
+                            lang === 'ru' ? document.querySelector('title').getAttribute('data-ru') :
+                            document.querySelector('title').getAttribute('data-sr');
+
+            languageFlags.forEach(flag => {
+                flag.classList.remove('active');
+                if (flag.getAttribute('data-lang') === lang) {
+                    flag.classList.add('active');
                 }
             });
 
-            // Language switcher
-            function updateLanguage(lang) {
-                elements.forEach(element => {
-                    let text;
-                    if (lang === 'en') {
-                        text = element.getAttribute('data-en');
-                    } else if (lang === 'ru') {
-                        text = element.getAttribute('data-ru');
-                    } else {
-                        text = element.getAttribute('data-sr');
-                    }
-                    element.innerHTML = text;
-                });
+            localStorage.setItem('selectedLanguage', lang);
+        }
 
-                languageFlags.forEach(flag => {
-                    flag.classList.remove('active');
-                    if (flag.getAttribute('data-lang') === lang) {
-                        flag.classList.add('active');
-                    }
-                });
+        // Load saved language or default to 'sr'
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'sr';
+        updateLanguage(savedLanguage);
 
-                localStorage.setItem('selectedLanguage', lang);
-            }
-
-            const savedLanguage = localStorage.getItem('selectedLanguage') || 'sr';
-            updateLanguage(savedLanguage);
-
-            languageFlags.forEach(flag => {
-                flag.addEventListener('click', () => {
-                    const lang = flag.getAttribute('data-lang');
-                    updateLanguage(lang);
-                });
+        // Language flag click handlers
+        languageFlags.forEach(flag => {
+            flag.addEventListener('click', () => {
+                const lang = flag.getAttribute('data-lang');
+                updateLanguage(lang);
             });
+        });
 
-            // Carousel functionality
-            function moveCarousel() {
+        // Carousel functionality
+        function moveCarousel() {
+            if (track) {
                 track.style.transform = `translateX(-${currentIndex * 100}%)`;
             }
+        }
 
-            function autoSlide() {
+        function autoSlide() {
+            currentIndex = (currentIndex + 1) % totalCards;
+            moveCarousel();
+        }
+
+        // Initialize carousel if it exists
+        if (track) {
+            slideInterval = setInterval(autoSlide, 5000);
+
+            document.getElementById('nextBtn')?.addEventListener('click', () => {
+                clearInterval(slideInterval);
                 currentIndex = (currentIndex + 1) % totalCards;
                 moveCarousel();
-            }
-
-            if (track) {
                 slideInterval = setInterval(autoSlide, 5000);
+            });
 
-                document.getElementById('nextBtn')?.addEventListener('click', () => {
-                    clearInterval(slideInterval);
-                    currentIndex = (currentIndex + 1) % totalCards;
-                    moveCarousel();
-                    slideInterval = setInterval(autoSlide, 5000);
-                });
-
-                document.getElementById('prevBtn')?.addEventListener('click', () => {
-                    clearInterval(slideInterval);
-                    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-                    moveCarousel();
-                    slideInterval = setInterval(autoSlide, 5000);
-                });
-            }
-        });
-    </script>
+            document.getElementById('prevBtn')?.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                moveCarousel();
+                slideInterval = setInterval(autoSlide, 5000);
+            });
+        }
+    });
+</script>
 </body>
 </html>
