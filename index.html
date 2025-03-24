@@ -18,7 +18,7 @@
             --animation-duration: 25s;
         }
 
-        /* Navbar stilovi (desktop remains unchanged) */
+        /* Navbar stilovi (Desktop unchanged) */
         .navbar {
             background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
             padding: 1.5rem 2rem;
@@ -107,8 +107,8 @@
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 246, 245, 0.95)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
-        /* Mobile and Tablet Navbar Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet adjustments */
+        @media (max-width: 991px) and (min-width: 769px) {
             .navbar {
                 padding: 1rem 1.5rem;
             }
@@ -119,34 +119,41 @@
                 margin-top: 0.5rem;
             }
             .nav-link {
-                margin: 0.5rem 0;
+                margin: 0 1rem;
                 font-size: 1rem;
-                text-align: center;
             }
             .social-links {
-                margin-top: 1rem;
+                margin-top: 0.75rem;
                 justify-content: center;
-                gap: 0.75rem;
+            }
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 1rem;
             }
             .navbar-logo {
                 height: 35px;
             }
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 0.75rem 1rem;
-            }
-            .navbar-logo {
-                height: 30px;
+            .navbar-collapse {
+                background: var(--budva-dark);
+                padding: 0.75rem;
+                border-radius: 8px;
+                margin-top: 0.5rem;
             }
             .nav-link {
+                margin: 0.5rem 0;
                 font-size: 0.9rem;
-                padding: 0.5rem 0.75rem;
+                text-align: center;
+            }
+            .social-links {
+                margin-top: 0.5rem;
+                justify-content: center;
+                gap: 0.75rem;
             }
             .social-icon {
                 font-size: 1rem;
-                padding: 0.4rem;
             }
         }
 
@@ -179,11 +186,11 @@
             opacity: 1;
         }
 
-        @media (max-width: 991px) {
+        /* Tablet and Mobile adjustments for language switcher */
+        @media (max-width: 991px) and (min-width: 769px) {
             .language-switcher {
                 top: 0.75rem;
                 right: 1.5rem;
-                gap: 0.75rem;
             }
             .language-flag {
                 width: 25px;
@@ -202,7 +209,7 @@
             }
         }
 
-        /* Hero stilovi (desktop unchanged) */
+        /* Hero stilovi (Desktop unchanged) */
         .hero-section {
             height: 70vh;
             display: flex;
@@ -247,8 +254,8 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Mobile and Tablet Hero Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet and Mobile adjustments for hero section */
+        @media (max-width: 991px) and (min-width: 769px) {
             .hero-section {
                 height: 60vh;
             }
@@ -256,12 +263,12 @@
                 font-size: 2.5rem;
             }
             .hero-content p {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 margin-bottom: 1.5rem;
             }
             .hero-btn {
                 padding: 0.8rem 2rem;
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
         }
 
@@ -273,15 +280,16 @@
                 font-size: 2rem;
             }
             .hero-content p {
-                font-size: 1rem;
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
             }
             .hero-btn {
                 padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
         }
 
-        /* Sticky footer (unchanged) */
+        /* Sticky footer korekcije (Desktop unchanged) */
         body {
             margin: 0;
             display: flex;
@@ -294,7 +302,7 @@
             background-color: var(--budva-white);
         }
 
-        /* Apartmani sekcija (desktop unchanged) */
+        /* Apartmani sekcija (Desktop unchanged) */
         .apartments-section {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -370,17 +378,21 @@
             color: var(--budva-dark);
         }
 
-        /* Mobile and Tablet Apartments Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet adjustments for apartments section */
+        @media (max-width: 991px) and (min-width: 769px) {
             .apartments-section {
                 padding: 3rem 1.5rem;
             }
+            .apartments-section h2 {
+                font-size: 2.2rem;
+                margin-bottom: 2rem;
+            }
             .apartments-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
             }
             .apartment-card img {
-                height: 220px;
+                height: 200px;
             }
             .apartment-card-content {
                 padding: 1rem;
@@ -394,15 +406,24 @@
             }
         }
 
+        /* Mobile adjustments for apartments section */
         @media (max-width: 768px) {
             .apartments-section {
                 padding: 2rem 1rem;
             }
             .apartments-section h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+            .apartments-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
             .apartment-card img {
                 height: 180px;
+            }
+            .apartment-card-content {
+                padding: 1rem;
             }
             .apartment-card-content h3 {
                 font-size: 1.2rem;
@@ -413,7 +434,7 @@
             }
         }
 
-        /* Modal stilovi (desktop unchanged) */
+        /* Modal stilovi (Desktop unchanged) */
         .modal-content {
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -494,8 +515,8 @@
             color: var(--budva-white);
         }
 
-        /* Mobile and Tablet Modal Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet adjustments for modal */
+        @media (max-width: 991px) and (min-width: 769px) {
             .modal-body {
                 padding: 1.5rem;
             }
@@ -512,16 +533,29 @@
             .modal-body p {
                 font-size: 1rem;
             }
+            .modal-footer {
+                padding: 0.75rem 1rem;
+            }
             .modal-footer .reserve-btn {
-                padding: 0.7rem 1.2rem;
+                padding: 0.6rem 1.2rem;
                 font-size: 0.9rem;
             }
         }
 
+        /* Mobile adjustments for modal */
         @media (max-width: 768px) {
             .modal-dialog {
                 margin: 0.5rem;
-                max-width: 100%;
+                max-width: 95%;
+            }
+            .modal-content {
+                height: auto;
+            }
+            .modal-header {
+                padding: 0.75rem 1rem;
+            }
+            .modal-title {
+                font-size: 1.2rem;
             }
             .modal-body {
                 padding: 1rem;
@@ -539,23 +573,17 @@
             .modal-body p {
                 font-size: 0.9rem;
             }
-            .modal-title {
-                font-size: 1.2rem;
-            }
-            .modal-header {
-                padding: 0.75rem 1rem;
-            }
             .modal-footer {
-                padding: 0.75rem 1rem;
+                padding: 0.5rem 1rem;
             }
             .modal-footer .reserve-btn {
-                padding: 0.6rem 1rem;
+                padding: 0.5rem 1rem;
                 font-size: 0.85rem;
                 width: 100%;
             }
         }
 
-        /* O nama sekcija (desktop unchanged) */
+        /* O nama sekcija (Desktop unchanged) */
         .about-section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -590,8 +618,8 @@
             margin: 0 auto;
         }
 
-        /* Mobile and Tablet About Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet and Mobile adjustments for about section */
+        @media (max-width: 991px) and (min-width: 769px) {
             .about-section {
                 padding: 3rem 1.5rem;
             }
@@ -609,60 +637,15 @@
             }
             .about-section h2 {
                 font-size: 1.8rem;
+                margin-bottom: 1.5rem;
             }
             .about-section p {
-                font-size: 0.95rem;
+                font-size: 1rem;
+                line-height: 1.6;
             }
         }
 
-        /* Text ticker (desktop unchanged) */
-        .text-ticker {
-            background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
-            padding: 1rem;
-            width: 100%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            white-space: nowrap;
-        }
-
-        .text-ticker-content {
-            color: var(--budva-white);
-            font-size: 1.5rem;
-            font-family: Arial, sans-serif;
-            font-weight: 500;
-            display: inline-block;
-            animation: slide var(--animation-duration) linear infinite;
-        }
-
-        .text-ticker-content b {
-            color: var(--budva-gold);
-        }
-
-        @keyframes slide {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* Mobile and Tablet Text Ticker Adjustments */
-        @media (max-width: 991px) {
-            .text-ticker {
-                padding: 0.8rem;
-            }
-            .text-ticker-content {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .text-ticker {
-                padding: 0.6rem;
-            }
-            .text-ticker-content {
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Prednosti lokacije (desktop unchanged) */
+        /* Prednosti lokacije (Desktop unchanged) */
         .location-advantages {
             max-width: 1200px;
             margin: 4rem auto;
@@ -704,10 +687,14 @@
             display: block;
         }
 
-        /* Mobile and Tablet Location Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet and Mobile adjustments for location advantages */
+        @media (max-width: 991px) and (min-width: 769px) {
             .location-advantages {
                 padding: 1.5rem;
+                margin: 3rem auto;
+            }
+            .location-advantages h2 {
+                font-size: 2rem;
             }
             .location-image {
                 max-height: 500px;
@@ -717,16 +704,18 @@
         @media (max-width: 768px) {
             .location-advantages {
                 padding: 1rem;
+                margin: 2rem auto;
             }
             .location-advantages h2 {
                 font-size: 1.8rem;
+                margin-bottom: 1rem;
             }
             .location-image {
                 max-height: 300px;
             }
         }
 
-        /* Komentari sa bookinga (desktop unchanged) */
+        /* Komentari sa bookinga (Desktop unchanged) */
         .reviews-section {
             max-width: 1200px;
             margin: 4rem auto;
@@ -854,10 +843,11 @@
             background: var(--budva-blue);
         }
 
-        /* Mobile and Tablet Reviews Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet and Mobile adjustments for reviews section */
+        @media (max-width: 991px) and (min-width: 769px) {
             .reviews-section {
                 padding: 1.5rem;
+                margin: 3rem auto;
             }
             .reviews-section h2 {
                 font-size: 2rem;
@@ -875,23 +865,33 @@
             .review-author h4 {
                 font-size: 1.1rem;
             }
+            .carousel-controls button {
+                font-size: 1.2rem;
+                padding: 0.4rem 0.8rem;
+            }
         }
 
         @media (max-width: 768px) {
             .reviews-section {
                 padding: 1rem;
+                margin: 2rem auto;
             }
             .reviews-section h2 {
                 font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+            .reviews-carousel {
+                max-width: 100%;
             }
             .review-card {
                 padding: 1rem;
             }
-            .review-card p {
-                font-size: 0.9rem;
-            }
             .review-card i.quote-icon {
                 font-size: 1.2rem;
+            }
+            .review-card p {
+                font-size: 0.9rem;
+                line-height: 1.5;
             }
             .review-author img {
                 width: 30px;
@@ -901,12 +901,59 @@
                 font-size: 1rem;
             }
             .carousel-controls button {
-                font-size: 1.2rem;
-                padding: 0.4rem 0.8rem;
+                font-size: 1rem;
+                padding: 0.3rem 0.6rem;
             }
         }
 
-        /* Linija (desktop unchanged) */
+        /* Text ticker (Desktop unchanged) */
+        .text-ticker {
+            background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
+            padding: 1rem;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .text-ticker-content {
+            color: var(--budva-white);
+            font-size: 1.5rem;
+            font-family: Arial, sans-serif;
+            font-weight: 500;
+            display: inline-block;
+            animation: slide var(--animation-duration) linear infinite;
+        }
+
+        .text-ticker-content b {
+            color: var(--budva-gold);
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Tablet and Mobile adjustments for text ticker */
+        @media (max-width: 991px) and (min-width: 769px) {
+            .text-ticker {
+                padding: 0.8rem;
+            }
+            .text-ticker-content {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .text-ticker {
+                padding: 0.6rem;
+            }
+            .text-ticker-content {
+                font-size: 1rem;
+            }
+        }
+
+        /* Linija (Desktop unchanged) */
         .custom-line {
             border: none;
             height: 4px;
@@ -914,15 +961,29 @@
             margin: 2rem 0;
         }
 
-        /* Logo city (desktop unchanged) */
+        /* Tablet and Mobile adjustments for line */
+        @media (max-width: 991px) and (min-width: 769px) {
+            .custom-line {
+                margin: 1.5rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .custom-line {
+                margin: 1rem 0;
+                height: 3px;
+            }
+        }
+
+        /* Logo city (Desktop unchanged) */
         .centered-logo {
             width: 550px;
             height: 600px;
             object-fit: contain;
         }
 
-        /* Mobile and Tablet Logo Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet and Mobile adjustments for logo */
+        @media (max-width: 991px) and (min-width: 769px) {
             .centered-logo {
                 width: 400px;
                 height: 450px;
@@ -931,12 +992,12 @@
 
         @media (max-width: 768px) {
             .centered-logo {
-                width: 300px;
-                height: 350px;
+                width: 250px;
+                height: 300px;
             }
         }
 
-        /* Kontakt informacije (desktop unchanged) */
+        /* Kontakt informacije (Desktop unchanged) */
         .contact-content {
             max-width: 1200px;
             margin: 4rem auto;
@@ -1002,10 +1063,11 @@
             font-weight: 500;
         }
 
-        /* Mobile and Tablet Contact Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet and Mobile adjustments for contact info */
+        @media (max-width: 991px) and (min-width: 769px) {
             .contact-content {
                 padding: 1.5rem;
+                margin: 3rem auto;
             }
             .contact-info {
                 padding: 1.5rem;
@@ -1027,23 +1089,31 @@
         @media (max-width: 768px) {
             .contact-content {
                 padding: 1rem;
+                margin: 2rem auto;
             }
             .contact-info {
                 padding: 1rem;
             }
             .contact-info h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+            }
+            .contact-info-item {
+                margin: 0.75rem 0;
+                flex-direction: column;
+                text-align: center;
             }
             .contact-info-item i {
                 font-size: 1.2rem;
-                width: 25px;
+                margin-right: 0;
+                margin-bottom: 0.5rem;
             }
             .contact-info-item span {
                 font-size: 0.9rem;
             }
         }
 
-        /* Dugme (desktop unchanged) */
+        /* Dugme (Desktop unchanged) */
         .reserve-btn {
             display: inline-block;
             background: var(--budva-gold);
@@ -1066,24 +1136,26 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Mobile and Tablet Button Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet and Mobile adjustments for button */
+        @media (max-width: 991px) and (min-width: 769px) {
             .reserve-btn {
                 padding: 0.8rem 2rem;
                 font-size: 1.1rem;
+                margin-top: 1.5rem;
             }
         }
 
         @media (max-width: 768px) {
             .reserve-btn {
                 padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
+                font-size: 1rem;
                 width: 100%;
                 max-width: 250px;
+                margin-top: 1rem;
             }
         }
 
-        /* Mapa (desktop unchanged) */
+        /* Mapa (Desktop unchanged) */
         .contact-map {
             width: 90%;
             max-width: 1200px;
@@ -1097,20 +1169,23 @@
             border-radius: 20px;
         }
 
-        /* Mobile and Tablet Map Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet and Mobile adjustments for map */
+        @media (max-width: 991px) and (min-width: 769px) {
             .contact-map iframe {
                 height: 500px;
             }
         }
 
         @media (max-width: 768px) {
+            .contact-map {
+                width: 95%;
+            }
             .contact-map iframe {
                 height: 300px;
             }
         }
 
-        /* Footer stilovi (desktop unchanged) */
+        /* Footer stilovi (Desktop unchanged) */
         .footer {
             background: linear-gradient(135deg, var(--budva-dark), var(--budva-blue));
             color: var(--budva-white);
@@ -1197,25 +1272,19 @@
             padding-top: 1rem;
         }
 
-        /* Mobile and Tablet Footer Adjustments */
-        @media (max-width: 991px) {
+        /* Tablet and Mobile adjustments for footer */
+        @media (max-width: 991px) and (min-width: 769px) {
             .footer {
                 padding: 2rem 1.5rem;
             }
             .footer-container {
-                grid-template-columns: 1fr;
                 gap: 1.5rem;
-                text-align: center;
             }
-            .footer-column h4::after {
-                left: 50%;
-                transform: translateX(-50%);
+            .footer-column h4 {
+                font-size: 1.2rem;
             }
             .footer-link, .footer-contact p {
-                justify-content: center;
-            }
-            .footer-social {
-                justify-content: center;
+                font-size: 0.95rem;
             }
         }
 
@@ -1223,18 +1292,32 @@
             .footer {
                 padding: 1.5rem 1rem;
             }
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                text-align: center;
+            }
             .footer-column h4 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+            }
+            .footer-column h4::after {
+                left: 50%;
+                transform: translateX(-50%);
             }
             .footer-link, .footer-contact p {
                 font-size: 0.9rem;
+                justify-content: center;
+            }
+            .footer-social {
+                justify-content: center;
             }
             .footer-credit {
                 font-size: 0.8rem;
+                margin-top: 1rem;
             }
         }
 
-        /* Centering wrapper (unchanged) */
+        /* Centering wrapper */
         .center-wrapper {
             text-align: center;
             margin: 0;
