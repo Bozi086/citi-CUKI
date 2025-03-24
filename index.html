@@ -290,50 +290,94 @@
             background-color: var(--budva-white);
         }
 
-        /* Hero stilovi */
-        .hero-section {
-            height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--budva-white);
-            background: linear-gradient(rgba(0, 52, 74, 0.45), rgba(0, 52, 74, 0.45)), url('hero-slika.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative; /* Dodato za language switcher */
-        }
+      /* Hero stilovi */
+.hero-section {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--budva-white);
+    background: linear-gradient(rgba(0, 52, 74, 0.45), rgba(0, 52, 74, 0.45)), url('hero-slika.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Dodato za language switcher */
+}
 
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
 
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
 
-        .hero-btn {
-            background: var(--budva-gold);
-            color: var(--budva-dark);
-            padding: 1rem 2.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
+.hero-btn {
+    background: var(--budva-gold);
+    color: var(--budva-dark);
+    padding: 1rem 2.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
-        .hero-btn:hover {
-            background: var(--budva-white);
-            color: var(--budva-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
+.hero-btn:hover {
+    background: var(--budva-white);
+    color: var(--budva-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responzivnost za mobilne uređaje */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh; /* Smanjujem visinu za bolji fit na mobilnim ekranima */
+        padding: 0 1rem; /* Dodajem padding sa strana za bolju čitljivost */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem; /* Smanjujem sa 3rem na 2.5rem, ali i dalje dovoljno veliko za čitljivost */
+        margin-bottom: 0.8rem; /* Smanjujem razmak ispod naslova */
+    }
+
+    .hero-content p {
+        font-size: 1.3rem; /* Povećavam sa 1.5rem na 1.3rem, ali prilagođavam za mobilni */
+        margin-bottom: 1.5rem; /* Smanjujem razmak ispod paragrafa */
+    }
+
+    .hero-btn {
+        padding: 0.8rem 2rem; /* Smanjujem padding za manje dugme */
+        font-size: 1.1rem; /* Smanjujem font dugmeta za bolji fit */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        height: 50vh; /* Još više smanjujem visinu za veoma male ekrane */
+    }
+
+    .hero-content h1 {
+        font-size: 2rem; /* Dalje smanjujem na 2rem za veoma male ekrane */
+        line-height: 1.2; /* Dodajem line-height za bolju čitljivost */
+    }
+
+    .hero-content p {
+        font-size: 1.1rem; /* Smanjujem na 1.1rem za manje ekrane */
+        padding: 0 0.5rem; /* Dodajem mali padding sa strana */
+    }
+
+    .hero-btn {
+        padding: 0.6rem 1.5rem; /* Još manje dugme za male ekrane */
+        font-size: 1rem; /* Smanjujem font dugmeta na 1rem */
+    }
+}
 
         /* Apartmani sekcija */
         .apartments-section {
