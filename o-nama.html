@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-sr="O nama - City Apartments" data-en="About Us - City Apartments">O nama - City Apartments</title>
+    <title data-sr="O nama - City Apartments" data-en="About Us - City Apartments" data-ru="О нас - City Apartments">O nama - City Apartments</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome za ikone -->
@@ -80,7 +80,6 @@
         .social-links {
             display: flex;
             gap: 1rem;
-            margin-right: 1rem; /* Space between social links and language switcher */
         }
 
         .social-icon {
@@ -107,22 +106,6 @@
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 246, 245, 0.95)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
-        /* Language switcher styles */
-        .language-switcher {
-            display: flex;
-            align-items: center;
-        }
-
-        .language-switcher select {
-            background: var(--budva-white);
-            color: var(--budva-dark);
-            border: 1px solid var(--budva-gold);
-            padding: 0.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
         /* Responzivnost */
         @media (max-width: 991px) {
             .navbar-collapse {
@@ -139,10 +122,6 @@
                 color: var(--budva-gold) !important;
                 background: rgba(255, 255, 255, 0.2);
             }
-            .language-switcher {
-                justify-content: center;
-                margin-top: 1rem;
-            }
         }
 
         @media (max-width: 768px) {
@@ -151,9 +130,48 @@
                 border-radius: 8px;
                 animation: glowingShadow 2s infinite ease-in-out;
             }
-            .language-switcher select {
-                width: 100%;
-                max-width: 200px;
+        }
+
+        /* Language switcher styles */
+        .language-switcher {
+            padding: 1rem 2rem;
+            background-color: var(--budva-white);
+            text-align: right;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .language-flag {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            border: 2px solid var(--budva-gold);
+            border-radius: 3px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .language-flag:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .language-flag.active {
+            border-color: var(--budva-dark);
+            opacity: 1;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .language-switcher {
+                padding: 0.5rem 1rem;
+                justify-content: center;
+            }
+            .language-flag {
+                width: 25px;
+                height: 15px;
             }
         }
 
@@ -455,16 +473,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html" data-sr="Početna" data-en="Home">Početna</a>
+                        <a class="nav-link" href="index.html" data-sr="Početna" data-en="Home" data-ru="Главная">Početna</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="o-nama.html" data-sr="O nama" data-en="About Us">O nama</a>
+                        <a class="nav-link active" href="o-nama.html" data-sr="O nama" data-en="About Us" data-ru="О нас">O nama</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="galerija.html" data-sr="Galerija" data-en="Gallery">Galerija</a>
+                        <a class="nav-link" href="galerija.html" data-sr="Galerija" data-en="Gallery" data-ru="Галерея">Galerija</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="kontakti.html" data-sr="Kontakti" data-en="Contacts">Kontakti</a>
+                        <a class="nav-link" href="kontakti.html" data-sr="Kontakti" data-en="Contacts" data-ru="Контакты">Kontakti</a>
                     </li>
                 </ul>
                 <div class="social-links">
@@ -478,23 +496,24 @@
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
-                <!-- Language Switcher Inside Navbar -->
-                <div class="language-switcher">
-                    <select id="languageSelect">
-                        <option value="sr">Srpski</option>
-                        <option value="en">English</option>
-                    </select>
-                </div>
             </div>
         </div>
     </nav>
 
+    <!-- Language Switcher with Flags Below Navbar -->
+    <div class="language-switcher">
+        <img src="sr-flag.png" alt="Srpski" class="language-flag active" data-lang="sr">
+        <img src="en-flag.png" alt="English" class="language-flag" data-lang="en">
+        <img src="ru-flag.png" alt="Русский" class="language-flag" data-lang="ru">
+    </div>
+
     <main>
         <section class="about-section" id="onama">
             <div class="about-header">
-                <h1 data-sr="O nama" data-en="About Us">O nama</h1>
+                <h1 data-sr="O nama" data-en="About Us" data-ru="О нас">O nama</h1>
                 <p data-sr="Dobrodošli u <b>City Apartments</b> - vaš dom u srcu <b>Budve</b>." 
-                   data-en="Welcome to <b>City Apartments</b> - your home in the heart of <b>Budva</b>.">Dobrodošli u <b>City Apartments</b> - vaš dom u srcu <b>Budve</b>.</p>
+                   data-en="Welcome to <b>City Apartments</b> - your home in the heart of <b>Budva</b>." 
+                   data-ru="Добро пожаловать в <b>City Apartments</b> - ваш дом в самом сердце <b>Будвы</b>.">Dobrodošli u <b>City Apartments</b> - vaš dom u srcu <b>Budve</b>.</p>
             </div>
 
             <div class="about-content">
@@ -502,13 +521,15 @@
                     <img src="naslovna.jpg" alt="City Apartments">
                 </div>
                 <div class="about-text">
-                    <h2 data-sr="Ko smo mi" data-en="Who We Are">Ko smo mi</h2>
+                    <h2 data-sr="Ko smo mi" data-en="Who We Are" data-ru="Кто мы">Ko smo mi</h2>
                     <p data-sr="<b>City Apartments</b> je porodični biznis s dugogodišnjom tradicijom, prepoznat kao lider u pružanju vrhunskog apartmanskog smještaja na crnogorskom primorju, sa sjedištem u <b>Budvi</b>. Naša misija je da svakom gostu pružimo nezaboravno iskustvo, kombinujući udobnost, luksuz i domaću atmosferu."
-                       data-en="<b>City Apartments</b> is a family business with a long-standing tradition, recognized as a leader in providing top-quality apartment accommodation on the Montenegrin coast, based in <b>Budva</b>. Our mission is to offer every guest an unforgettable experience, combining comfort, luxury, and a homely atmosphere.">
+                       data-en="<b>City Apartments</b> is a family business with a long-standing tradition, recognized as a leader in providing top-quality apartment accommodation on the Montenegrin coast, based in <b>Budva</b>. Our mission is to offer every guest an unforgettable experience, combining comfort, luxury, and a homely atmosphere."
+                       data-ru="<b>City Apartments</b> - это семейный бизнес с многолетней традицией, признанный лидером в предоставлении высококачественного апартаментного жилья на черногорском побережье, с базой в <b>Будве</b>. Наша миссия - подарить каждому гостю незабываемый опыт, сочетая комфорт, роскошь и домашнюю атмосферу.">
                         <b>City Apartments</b> je porodični biznis s dugogodišnjom tradicijom, prepoznat kao lider u pružanju vrhunskog apartmanskog smještaja na crnogorskom primorju, sa sjedištem u <b>Budvi</b>. Naša misija je da svakom gostu pružimo nezaboravno iskustvo, kombinujući udobnost, luksuz i domaću atmosferu.
                     </p>
                     <p data-sr="Nalazimo se na idealnoj lokaciji u centru grada, blizu plaža, restorana i glavnih atrakcija u srcu <b>Budve</b>. Naši apartmani su moderno opremljeni i pažljivo dizajnirani kako bi zadovoljili i najprefinjenije ukuse, pružajući luksuz i udobnost koji premašuju očekivanja i najzahtjevnijih gostiju!"
-                       data-en="We are located in an ideal spot in the city center, close to beaches, restaurants, and main attractions in the heart of <b>Budva</b>. Our apartments are modernly equipped and carefully designed to satisfy even the most refined tastes, offering luxury and comfort that exceed the expectations of even the most demanding guests!">
+                       data-en="We are located in an ideal spot in the city center, close to beaches, restaurants, and main attractions in the heart of <b>Budva</b>. Our apartments are modernly equipped and carefully designed to satisfy even the most refined tastes, offering luxury and comfort that exceed the expectations of even the most demanding guests!"
+                       data-ru="Мы находимся в идеальном месте в центре города, рядом с пляжами, ресторанами и главными достопримечательностями в самом сердце <b>Будвы</b>. Наши апартаменты современно оборудованы и тщательно спроектированы, чтобы удовлетворить даже самые изысканные вкусы, предлагая роскошь и комфорт, превосходящие ожидания даже самых требовательных гостей!">
                         Nalazimo se na idealnoj lokaciji u centru grada, blizu plaža, restorana i glavnih atrakcija u srcu <b>Budve</b>. Naši apartmani su moderno opremljeni i pažljivo dizajnirani kako bi zadovoljili i najprefinjenije ukuse, pružajući luksuz i udobnost koji premašuju očekivanja i najzahtjevnijih gostiju!
                     </p>
                 </div>
@@ -516,38 +537,40 @@
 
             <div class="mission-vision">
                 <div class="mission-vision-card">
-                    <h3 data-sr="Naša misija" data-en="Our Mission">Naša misija</h3>
+                    <h3 data-sr="Naša misija" data-en="Our Mission" data-ru="Наша миссия">Naša misija</h3>
                     <p data-sr="Pružiti gostima vrhunski smještaj koji spaja udobnost doma i luksuz hotela, uz personaliziranu uslugu i nezaboravne trenutke u <b>Budvi</b>."
-                       data-en="To provide guests with top-quality accommodation that blends the comfort of home with the luxury of a hotel, along with personalized service and unforgettable moments in <b>Budva</b>.">
+                       data-en="To provide guests with top-quality accommodation that blends the comfort of home with the luxury of a hotel, along with personalized service and unforgettable moments in <b>Budva</b>."
+                       data-ru="Предоставить гостям высококачественное жилье, сочетающее комфорт дома и роскошь отеля, с персонализированным обслуживанием и незабываемыми моментами в <b>Будве</b>.">
                         Pružiti gostima vrhunski smještaj koji spaja udobnost doma i luksuz hotela, uz personaliziranu uslugu i nezaboravne trenutke u <b>Budvi</b>.
                     </p>
                 </div>
                 <div class="mission-vision-card">
-                    <h3 data-sr="Dodatne usluge" data-en="Additional Services">Dodatne usluge</h3>
+                    <h3 data-sr="Dodatne usluge" data-en="Additional Services" data-ru="Дополнительные услуги">Dodatne usluge</h3>
                     <p data-sr="Transferi od/do aerodroma, rentiranje automobila, motocikala i bicikala, kao i organizovanje izleta i krstarenja (pecanje, ronjenje) na svim ekskluzivnim lokalitetima u <b>Crnoj Gori</b>."
-                       data-en="Airport transfers, car, motorcycle, and bicycle rentals, as well as organizing excursions and cruises (fishing, diving) to all exclusive locations in <b>Montenegro</b>.">
+                       data-en="Airport transfers, car, motorcycle, and bicycle rentals, as well as organizing excursions and cruises (fishing, diving) to all exclusive locations in <b>Montenegro</b>."
+                       data-ru="Трансферы из/в аэропорт, аренда автомобилей, мотоциклов и велосипедов, а также организация экскурсий и круизов (рыбалка, дайвинг) по всем эксклюзивным местам в <b>Черногории</b>.">
                         Transferi od/do aerodroma, rentiranje automobila, motocikala i bicikala, kao i organizovanje izleta i krstarenja (pecanje, ronjenje) na svim ekskluzivnim lokalitetima u <b>Crnoj Gori</b>.
                     </p>
                 </div>
             </div>
 
             <div class="team-section">
-                <h2 data-sr="Naš tim" data-en="Our Team">Naš tim</h2>
+                <h2 data-sr="Naš tim" data-en="Our Team" data-ru="Наша команда">Naš tim</h2>
                 <div class="team-grid">
                     <div class="team-member">
-                        <img src="vladan.jpg" alt="Član tima">
+                        <img src="vladan.jpg" alt="Члан тима">
                         <h4>Vladan Mrvaljević</h4>
-                        <p data-sr="Osnivač i direktor" data-en="Founder and Director">Osnivač i direktor</p>
+                        <p data-sr="Osnivač i direktor" data-en="Founder and Director" data-ru="Основатель и директор">Osnivač i direktor</p>
                     </div>
                     <div class="team-member">
-                        <img src="zorica.jpg" alt="Član tima">
+                        <img src="zorica.jpg" alt="Члан тима">
                         <h4>Zorica Micić</h4>
-                        <p data-sr="Korisnička podrška" data-en="Customer Support">Korisnička podrška</p>
+                        <p data-sr="Korisnička podrška" data-en="Customer Support" data-ru="Поддержка клиентов">Korisnička podrška</p>
                     </div>
                     <div class="team-member">
-                        <img src="milos.jpg" alt="Član tima">
+                        <img src="milos.jpg" alt="Члан тима">
                         <h4>Miloš Božović</h4>
-                        <p data-sr="Savjetnik za ekonomiju i inovacije" data-en="Advisor for Economy and Innovation">Savjetnik za ekonomiju i inovacije</p>
+                        <p data-sr="Savjetnik za ekonomiju i inovacije" data-en="Advisor for Economy and Innovation" data-ru="Советник по экономике и инновациям">Savjetnik za ekonomiju i inovacije</p>
                     </div>
                 </div>
             </div>
@@ -557,21 +580,22 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-column">
-                <h4 data-sr="Navigacija" data-en="Navigation">Navigacija</h4>
-                <a href="index.html" class="footer-link" data-sr="Početna" data-en="Home"><i class="fas fa-home"></i> Početna</a>
-                <a href="o-nama.html" class="footer-link" data-sr="O nama" data-en="About Us"><i class="fas fa-info-circle"></i> O nama</a>
-                <a href="galerija.html" class="footer-link" data-sr="Galerija" data-en="Gallery"><i class="fas fa-images"></i> Galerija</a>
-                <a href="kontakti.html" class="footer-link" data-sr="Kontakti" data-en="Contacts"><i class="fas fa-envelope"></i> Kontakti</a>
+                <h4 data-sr="Navigacija" data-en="Navigation" data-ru="Навигация">Navigacija</h4>
+                <a href="index.html" class="footer-link" data-sr="Početna" data-en="Home" data-ru="Главная"><i class="fas fa-home"></i> Početna</a>
+                <a href="o-nama.html" class="footer-link" data-sr="O nama" data-en="About Us" data-ru="О нас"><i class="fas fa-info-circle"></i> O nama</a>
+                <a href="galerija.html" class="footer-link" data-sr="Galerija" data-en="Gallery" data-ru="Галерея"><i class="fas fa-images"></i> Galerija</a>
+                <a href="kontakti.html" class="footer-link" data-sr="Kontakti" data-en="Contacts" data-ru="Контакты"><i class="fas fa-envelope"></i> Kontakti</a>
             </div>
             <div class="footer-column footer-contact">
-                <h4 data-sr="Kontakt" data-en="Contact">Kontakt</h4>
+                <h4 data-sr="Kontakt" data-en="Contact" data-ru="Контакты">Kontakt</h4>
                 <p><i class="fas fa-phone"></i> +382 68 871 777</p>
                 <p><i class="fas fa-envelope"></i> info@city-apartments.me</p>
                 <p data-sr="Ul. Mediteranska 53, 85310 Budva, Crna Gora" 
-                   data-en="Mediteranska St. 53, 85310 Budva, Montenegro"><i class="fas fa-map-marker-alt"></i> Ul. Mediteranska 53, 85310 Budva, Crna Gora</p>
+                   data-en="Mediteranska St. 53, 85310 Budva, Montenegro" 
+                   data-ru="ул. Медитеранская 53, 85310 Будва, Черногория"><i class="fas fa-map-marker-alt"></i> Ul. Mediteranska 53, 85310 Budva, Crna Gora</p>
             </div>
             <div class="footer-column">
-                <h4 data-sr="Pratite nas" data-en="Follow Us">Pratite nas</h4>
+                <h4 data-sr="Pratite nas" data-en="Follow Us" data-ru="Следите за нами">Pratite nas</h4>
                 <div class="footer-social">
                     <a href="https://wa.me/38269871777" target="_blank" class="social-icon">
                         <i class="fab fa-whatsapp"></i>
@@ -586,7 +610,8 @@
             </div>
         </div>
         <div class="footer-credit" data-sr="© 2025 City Apartments | Sva prava zadržana." 
-             data-en="© 2025 City Apartments | All rights reserved.">
+             data-en="© 2025 City Apartments | All rights reserved." 
+             data-ru="© 2025 City Apartments | Все права защищены.">
             © 2025 City Apartments | Sva prava zadržana.
         </div>
     </footer>
@@ -597,8 +622,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const navbar = document.querySelector('.navbar');
-            const languageSelect = document.getElementById('languageSelect');
-            const elements = document.querySelectorAll('[data-sr][data-en]');
+            const languageFlags = document.querySelectorAll('.language-flag');
+            const elements = document.querySelectorAll('[data-sr][data-en][data-ru]');
 
             // Navbar active link handling
             navLinks.forEach(link => {
@@ -624,18 +649,28 @@
                 elements.forEach(element => {
                     if (lang === 'en') {
                         element.innerHTML = element.getAttribute('data-en');
+                    } else if (lang === 'ru') {
+                        element.innerHTML = element.getAttribute('data-ru');
                     } else {
                         element.innerHTML = element.getAttribute('data-sr');
                     }
                 });
                 document.documentElement.lang = lang; // Update HTML lang attribute
-                document.title = lang === 'en' ? 
-                    document.querySelector('title').getAttribute('data-en') : 
-                    document.querySelector('title').getAttribute('data-sr');
+                document.title = lang === 'en' ? document.querySelector('title').getAttribute('data-en') :
+                                lang === 'ru' ? document.querySelector('title').getAttribute('data-ru') :
+                                document.querySelector('title').getAttribute('data-sr');
+
+                // Update active flag
+                languageFlags.forEach(flag => {
+                    flag.classList.toggle('active', flag.getAttribute('data-lang') === lang);
+                });
             }
 
-            languageSelect.addEventListener('change', function() {
-                updateLanguage(this.value);
+            languageFlags.forEach(flag => {
+                flag.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    updateLanguage(lang);
+                });
             });
 
             // Set default language to Serbian
