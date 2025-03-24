@@ -290,7 +290,7 @@
             background-color: var(--budva-white);
         }
 
-      /* Hero stilovi */
+  /* Hero stilovi */
 .hero-section {
     height: 70vh;
     display: flex;
@@ -301,7 +301,7 @@
     background: linear-gradient(rgba(0, 52, 74, 0.45), rgba(0, 52, 74, 0.45)), url('hero-slika.jpg');
     background-size: cover;
     background-position: center;
-    position: relative; /* Dodato za language switcher */
+    position: relative;
 }
 
 .hero-content h1 {
@@ -338,39 +338,34 @@
 /* Responzivnost za mobilne uređaje */
 @media (max-width: 768px) {
     .hero-section {
-        height: 60vh; /* Smanjujem visinu za bolji fit na mobilnim ekranima */
-        padding: 0 1rem; /* Dodajem padding sa strana za bolju čitljivost */
+        height: 60vh;
+        padding: 0 1rem;
     }
-
     .hero-content h1 {
-        font-size: 5rem; /* Povećavam sa 4rem na 5rem za veći tekst */
-        margin-bottom: 0.7rem; /* Smanjujem razmak ispod naslova */
+        font-size: 5rem;
+        margin-bottom: 0.7rem;
     }
-
     .hero-content p {
-        font-size: 1.8rem; /* Povećavam sa 1.4rem na 1.8rem za veći tekst */
-        margin-bottom: 1.5rem; /* Smanjujem razmak ispod paragrafa */
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
     }
-
     .hero-btn {
-        padding: 0.8rem 2rem; /* Smanjujem padding za manje dugme */
-        font-size: 1.1rem; /* Smanjujem font dugmeta za bolji fit */
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
     }
 }
 
 @media (max-width: 480px) {
     .hero-section {
-        height: 50vh; /* Još više smanjujem visinu za veoma male ekrane */
+        height: 50vh;
     }
-
     .hero-content h1 {
-        font-size: 3.5rem; /* Povećavam sa 2.5rem na 3.5rem za veći tekst */
-        line-height: 1.2; /* Dodajem line-height za bolju čitljivost */
+        font-size: 3.5rem;
+        line-height: 1.2;
     }
-
     .hero-content p {
-        font-size: 1.6rem; /* Povećavam sa 1.5rem na 1.6rem za veći tekst */
-        padding: 0 0.5rem; /* Dodajem mali padding sa strana */
+        font-size: 1.6rem;
+        padding: 0 0.5rem;
     }
 }
 
