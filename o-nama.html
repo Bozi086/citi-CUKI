@@ -16,7 +16,6 @@
             --budva-white: #F5F6F5;
             --budva-dark: #00344A;
         }
-
         /* Navbar stilovi */
         .navbar {
             background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
@@ -106,7 +105,6 @@
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 246, 245, 0.95)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
-        /* Responzivnost */
         @media (max-width: 991px) {
             .navbar-collapse {
                 background: var(--budva-dark);
@@ -132,16 +130,14 @@
             }
         }
 
-        /* Language switcher styles */
+        /* Language switcher styles (adjusted to match first page) */
         .language-switcher {
-            padding: 1rem 2rem;
-            background-color: var(--budva-white);
-            text-align: right;
-            max-width: 1200px;
-            margin: 0 auto;
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
             display: flex;
-            justify-content: flex-end;
             gap: 1rem;
+            z-index: 10;
         }
 
         .language-flag {
@@ -163,11 +159,10 @@
             opacity: 1;
         }
 
-        /* Mobile adjustments */
         @media (max-width: 768px) {
             .language-switcher {
-                padding: 0.5rem 1rem;
-                justify-content: center;
+                top: 0.5rem;
+                right: 1rem;
             }
             .language-flag {
                 width: 25px;
@@ -300,6 +295,7 @@
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative; /* Added to support absolute positioning of language switcher */
         }
 
         .about-header {
@@ -500,15 +496,14 @@
         </div>
     </nav>
 
-    <!-- Language Switcher with Flags Below Navbar -->
-  <div class="language-switcher">
+    <main>
+        <section class="about-section" id="onama">
+            <!-- Language Switcher moved here and positioned absolutely -->
+            <div class="language-switcher">
                 <img src="srpski.png" alt="Srpski" class="language-flag active" data-lang="sr">
                 <img src="engleski.png" alt="English" class="language-flag" data-lang="en">
                 <img src="ruski.jpg" alt="Русский" class="language-flag" data-lang="ru">
             </div>
-
-    <main>
-        <section class="about-section" id="onama">
             <div class="about-header">
                 <h1 data-sr="O nama" data-en="About Us" data-ru="О нас">O nama</h1>
                 <p data-sr="Dobrodošli u <b>City Apartments</b> - vaš dom u srcu <b>Budve</b>." 
@@ -664,7 +659,14 @@
                 languageFlags.forEach(flag => {
                     flag.classList.toggle('active', flag.getAttribute('data-lang') === lang);
                 });
+
+                // Save language preference
+                localStorage.setItem('selectedLanguage', lang);
             }
+
+            // Load saved language or default to Serbian
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'sr';
+            updateLanguage(savedLanguage);
 
             languageFlags.forEach(flag => {
                 flag.addEventListener('click', function() {
@@ -672,9 +674,6 @@
                     updateLanguage(lang);
                 });
             });
-
-            // Set default language to Serbian
-            updateLanguage('sr');
         });
     </script>
 </body>
